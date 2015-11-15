@@ -11,6 +11,9 @@
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths"/>
+  <rooms name="rooms">
+    <room>rooms\rm_01</room>
+  </rooms>
   <help>
     <rtf>help.rtf</rtf>
   </help>
