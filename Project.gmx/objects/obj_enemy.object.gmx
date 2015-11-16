@@ -52,10 +52,10 @@ grav = 0.2;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Gegner Steuerung
+            <string>//Gegner Steuerung und HP-System
 hsp = dir * movespeed;
 vsp += grav;
-
+global.hp = 50;
 //Horizontale Kollision mit Wand
 if (place_meeting(x+hsp,y,obj_wall))
 {
@@ -79,6 +79,19 @@ if (place_meeting(x,y+vsp,wall))
 }
 y += vsp;
 
+//Enemy Collision
+if (place_meeting(x,y,player))
+{
+    if (obj_player.y &lt; y-16)
+        {
+        with (obj_player) vsp = -jumpspeed;
+        global.hp -= 10;
+        }
+    else
+        {
+        with (obj_player) global.hp -= 10;
+        }
+}
 </string>
           </argument>
         </arguments>
