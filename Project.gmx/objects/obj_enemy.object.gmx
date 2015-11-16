@@ -30,6 +30,7 @@ spd = 4;
 hsp = 0;
 vsp = 0;
 grav = 0.5;
+global.hp = 50;
 </string>
           </argument>
         </arguments>
@@ -55,7 +56,6 @@ grav = 0.5;
             <string>//Gegner Steuerung und HP-System
 hsp = dir * spd;
 vsp += grav;
-global.hp = 50;
 //Horizontale Kollision mit Wand
 if (place_meeting(x+hsp,y,obj_wall))
 {
