@@ -59,7 +59,7 @@ global.hp = 50;
 //Horizontale Kollision mit Wand
 if (place_meeting(x+hsp,y,obj_wall))
 {
-    while (!place_meeting(x+sign(hsp),y,wall))
+    while (!place_meeting(x+sign(hsp),y,obj_wall))
     {
         x += sign(hsp);
     }
@@ -69,9 +69,9 @@ if (place_meeting(x+hsp,y,obj_wall))
 x += hsp;
 
 //Vertikale Kollision mit Wand
-if (place_meeting(x,y+vsp,wall))
+if (place_meeting(x,y+vsp,obj_wall))
 {
-    while (!place_meeting(x,y+sign(vsp),wall))
+    while (!place_meeting(x,y+sign(vsp),obj_wall))
     {
         y += sign(vsp);
     }
@@ -80,7 +80,7 @@ if (place_meeting(x,y+vsp,wall))
 y += vsp;
 
 //Enemy Collision
-if (place_meeting(x,y,player))
+if (place_meeting(x,y,obj_player))
 {
     if (obj_player.y &lt; y-16)
         {
@@ -92,6 +92,9 @@ if (place_meeting(x,y,player))
         with (obj_player) global.hp -= 10;
         }
 }
+
+//Gegner Tod
+if (global.hp &lt;= 0) instance_destroy();
 </string>
           </argument>
         </arguments>
