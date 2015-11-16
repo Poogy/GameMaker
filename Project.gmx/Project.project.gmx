@@ -14,8 +14,12 @@
   <backgrounds name="background"/>
   <paths name="paths"/>
   <objects name="objects">
+<<<<<<< HEAD
     <object>objects\obj_player</object>
     <object>objects\obj_wall</object>
+=======
+    <object>objects\obj_enemy</object>
+>>>>>>> origin/master
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
