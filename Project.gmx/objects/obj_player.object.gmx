@@ -26,12 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-grav = 1;
+grav = 0.5;
 spd = 4;
 jspd = 12;
 hspd = 0;
 vspd = 0;
-global.hp = 100;
+hp.player = 100;
 </string>
           </argument>
         </arguments>

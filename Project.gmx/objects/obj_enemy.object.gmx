@@ -25,12 +25,13 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dir = -1;
+            <string>///Variables
+dir = -1;
 spd = 4;
 hsp = 0;
 vsp = 0;
 grav = 0.5;
-global.hp = 50;
+hp.enemy = 50;
 </string>
           </argument>
         </arguments>
@@ -85,16 +86,18 @@ if (place_meeting(x,y,obj_player))
     if (obj_player.y &lt; y-16)
         {
         with (obj_player) vsp = -jspd;
-        global.hp -= 10;
+        hp.enemy -= 10;
+        if (hp.enemy &lt;= 0)
+        {
+            with other instance_destroy();
+        }
         }
     else
         {
-        with (obj_player) global.hp -= 10;
+        with (obj_player) hp.player -= 10;
         }
 }
 
-//Gegner Tod
-if (global.hp &lt;= 0) instance_destroy();
 </string>
           </argument>
         </arguments>
