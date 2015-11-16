@@ -26,7 +26,7 @@
           <argument>
             <kind>1</kind>
             <string>dir = -1;
-movespeed = 4;
+spd = 4;
 hsp = 0;
 vsp = 0;
 grav = 0.5;
@@ -53,7 +53,7 @@ grav = 0.5;
           <argument>
             <kind>1</kind>
             <string>//Gegner Steuerung und HP-System
-hsp = dir * movespeed;
+hsp = dir * spd;
 vsp += grav;
 global.hp = 50;
 //Horizontale Kollision mit Wand
@@ -84,7 +84,7 @@ if (place_meeting(x,y,obj_player))
 {
     if (obj_player.y &lt; y-16)
         {
-        with (obj_player) vsp = -jumpspeed;
+        with (obj_player) vsp = -jspd;
         global.hp -= 10;
         }
     else
