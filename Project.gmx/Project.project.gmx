@@ -12,6 +12,7 @@
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_movingplatform</sprite>
     <sprite>sprites\spr_punch</sprite>
+    <sprite>sprites\spr_ladder</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
@@ -24,6 +25,7 @@
     <object>objects\obj_wall</object>
     <object>objects\obj_movingplatform</object>
     <object>objects\obj_punch</object>
+    <object>objects\obj_ladder</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>

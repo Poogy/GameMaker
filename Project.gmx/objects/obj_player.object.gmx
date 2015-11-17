@@ -26,11 +26,14 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-grav = 0.5;
+grav_normal = 0.5;
+grav = grav_normal;
 spd = 4;
 jspd = 12;
 hspd = 0;
+hspd_carry = 0;
 vspd = 0;
+cspd = 2;
 hp_player = 100;
 </string>
           </argument>
@@ -54,9 +57,13 @@ hp_player = 100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Physics
+            <string>//Variablen
+hspd_final = hspd + hspd_carry;
+hspd_carry = 0;
+//Physics
 var right_key = keyboard_check(ord('D'));
 var left_key = keyboard_check(ord('A'));
+var down_key = keyboard_check(ord('S'));
 var jump_key = keyboard_check(ord('W'));
 
 //Check Air/Ground
@@ -68,18 +75,18 @@ if place_meeting(x, y+1, obj_wall){
 }
 
 //Movement
-if right_key {hspd = spd};
-if left_key {hspd = -spd};
-if (!right_key &amp;&amp; !left_key) || (right_key &amp;&amp; left_key) {hspd = 0};
+if right_key {hspd_final = spd};
+if left_key {hspd_final = -spd};
+if (!right_key &amp;&amp; !left_key) || (right_key &amp;&amp; left_key) {hspd_final = 0};
 
 //Collisions
-if place_meeting(x+hspd, y,obj_wall){
-   while !place_meeting(x+sign(hspd), y, obj_wall){
-         x+=sign(hspd);
+if place_meeting(x+hspd_final, y,obj_wall){
+   while !place_meeting(x+sign(hspd_final), y, obj_wall){
+         x+=sign(hspd_final);
    }
-   hspd = 0;
+   hspd_final = 0;
 }
-x+=hspd;
+x+=hspd_final;
 
 if place_meeting(x, y+vspd, obj_wall){
    while !place_meeting(x, y+sign(vspd), obj_wall){
@@ -88,6 +95,21 @@ if place_meeting(x, y+vspd, obj_wall){
    vspd = 0;
 }
 y+=vspd;
+
+//Leitern
+if place_meeting(x, y,obj_ladder){
+   vspd = 0;
+   grav = 0;
+} else {
+   grav = grav_normal;
+}
+
+if (place_meeting(x, y,obj_ladder) &amp;&amp; jump_key){
+   vspd = -cspd;
+}
+if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
+   vspd = cspd;
+}
 </string>
           </argument>
         </arguments>
@@ -110,7 +132,7 @@ y+=vspd;
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_punch</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>0</kind>
@@ -140,7 +162,7 @@ y+=vspd;
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_punch</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>0</kind>
