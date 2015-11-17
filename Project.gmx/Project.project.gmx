@@ -10,14 +10,18 @@
     <sprite>sprites\spr_enemy</sprite>
     <sprite>sprites\spr_enemy2</sprite>
     <sprite>sprites\spr_wall</sprite>
+    <sprite>sprites\spr_movingplatform</sprite>
   </sprites>
   <backgrounds name="background"/>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pth_01</path>
+  </paths>
   <objects name="objects">
     <object>objects\obj_enemy</object>
     <object>objects\obj_player</object>
-    <object>objects\obj_wall</object>
     <object>objects\obj_draw</object>
+    <object>objects\obj_wall</object>
+    <object>objects\obj_movingplatform</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>

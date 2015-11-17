@@ -31,7 +31,7 @@ spd = 4;
 jspd = 12;
 hspd = 0;
 vspd = 0;
-hp.player = 100;
+hp_player = 100;
 </string>
           </argument>
         </arguments>
@@ -57,7 +57,7 @@ hp.player = 100;
             <string>//Physics
 var right_key = keyboard_check(ord('D'));
 var left_key = keyboard_check(ord('A'));
-var jump_key = keyboard_check(vk_space);
+var jump_key = keyboard_check(ord('W'));
 
 //Check Air/Ground
 if place_meeting(x, y+1, obj_wall){
