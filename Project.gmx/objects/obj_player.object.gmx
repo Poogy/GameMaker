@@ -31,7 +31,6 @@ grav = grav_normal;
 spd = 4;
 jspd = 12;
 hspd = 0;
-hspd_carry = 0;
 vspd = 0;
 cspd = 2;
 hp_player = 100;
@@ -57,10 +56,7 @@ hp_player = 100;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Variablen
-hspd_final = hspd + hspd_carry;
-hspd_carry = 0;
-//Physics
+            <string>//Physics
 var right_key = keyboard_check(ord('D'));
 var left_key = keyboard_check(ord('A'));
 var down_key = keyboard_check(ord('S'));
@@ -75,18 +71,22 @@ if place_meeting(x, y+1, obj_wall){
 }
 
 //Movement
-if right_key {hspd_final = spd};
-if left_key {hspd_final = -spd};
-if (!right_key &amp;&amp; !left_key) || (right_key &amp;&amp; left_key) {hspd_final = 0};
+if place_meeting(x, y+1,obj_movingplatform){
+   hspd = obj_movingplatform.spd;
+} else { 
+  if right_key {hspd = spd};
+  if left_key {hspd = -spd};
+  if (!right_key &amp;&amp; !left_key) || (right_key &amp;&amp; left_key) {hspd = 0};
+}
 
 //Collisions
-if place_meeting(x+hspd_final, y,obj_wall){
-   while !place_meeting(x+sign(hspd_final), y, obj_wall){
-         x+=sign(hspd_final);
+if place_meeting(x+hspd, y,obj_wall){
+   while !place_meeting(x+sign(hspd), y, obj_wall){
+         x+=sign(hspd);
    }
-   hspd_final = 0;
+   hspd = 0;
 }
-x+=hspd_final;
+x+=hspd;
 
 if place_meeting(x, y+vspd, obj_wall){
    while !place_meeting(x, y+sign(vspd), obj_wall){
@@ -161,6 +161,30 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
           <argument>
             <kind>1</kind>
             <string>with (obj_punch) hspd = 10;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="38">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///hspd_final += 1
+hspd_final += 1
 </string>
           </argument>
         </arguments>

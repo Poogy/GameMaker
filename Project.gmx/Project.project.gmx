@@ -26,6 +26,7 @@
     <object>objects\obj_movingplatform</object>
     <object>objects\obj_punch</object>
     <object>objects\obj_ladder</object>
+    <object>objects\obj_view</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
