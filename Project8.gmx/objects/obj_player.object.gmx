@@ -94,7 +94,7 @@ if key_jump  {
       }
 }
 
-//Punch
+//Spell1
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
 instance_create(x,y,obj_spell_01);
 cd_skill_01 = 1
