@@ -88,7 +88,7 @@ var left_key = keyboard_check(ord('A'));
 var left_arrow_key = keyboard_check(vk_left);
 var down_key = keyboard_check(ord('S'));
 var jump_key = keyboard_check(ord('W'));
-var skill_key = keyboard_check(ord('P'));
+var skill_key = keyboard_check_released(ord('P'));
 
 //Check Air/Ground
 if place_meeting(x, y+1, obj_wall){
@@ -151,11 +151,11 @@ reload = 1
 alarm[0]=30;
 }
 //Skill-menu
-if skill_key{
-   instance_create(100,100,obj_skill)
-} else if instance_exists(obj_skill) {
+if (skill_key &amp;&amp; instance_exists(obj_skill)) {
 with obj_skill do instance_destroy()
 with obj_skillup do instance_destroy()
+} else if skill_key &amp;&amp; !instance_exists(obj_skill){
+  instance_create(100,100,obj_skill)
 }
 </string>
           </argument>
