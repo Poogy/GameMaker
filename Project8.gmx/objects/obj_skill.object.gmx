@@ -25,8 +25,31 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>draw_text(130,200,obj_player.sp);
-instance_create(140,200,obj_skillup);
+            <string>instance_create(obj_player.x+40,obj_player.y+80,obj_skillup);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>draw_text(obj_player.x+38,obj_player.y+60,"SP: " +string(obj_player.sp));
+draw_text(obj_player.x-120,obj_player.y+90,"HP: " +string(obj_player.hp_player) +"/" +string(obj_player.hp_player_max));
 </string>
           </argument>
         </arguments>

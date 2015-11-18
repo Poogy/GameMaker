@@ -58,15 +58,12 @@ dir = choose(1,-1);
 //Gegner Movement
 if place_meeting(x+1,y,obj_wall){dir = 1};
 if place_meeting(x-1,y,obj_wall){dir = -1};
-if keyboard_check(vk_left){physics_apply_force(x,y,spd,-20)}
 //Damage System
 if (place_meeting(x,y,obj_player))
 {
-    if (obj_player.y &lt; y-16)
-    {
-        with (obj_player) hp_player -= 10;
-    }
+    with (obj_player) hp_player -= 10;
 }
+
 if (place_meeting(x,y,obj_spell_01))
 {
     hp_enemy -= 10;

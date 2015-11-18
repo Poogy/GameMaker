@@ -29,12 +29,37 @@
 phy_fixed_rotation = true;
 
 hp_player = 100;
+hp_player_max = 100;
 spd = 400;
 jumping = false;
 jspd = -360;
+cspd = 10;
 
 sp = 10;
 cd_skill_01 = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="1">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Double Jump Timer
 </string>
           </argument>
         </arguments>
@@ -90,11 +115,16 @@ if key_right {physics_apply_force(x,y,spd,-20)};
 if key_jump  {
    if place_meeting(x,y+1,obj_wall){
       jumping = true;
+      alarm[1] = 6
+      physics_apply_impulse(x,y,0, jspd);
+      }
+   if jumping &amp;&amp; alarm[1] &lt; 0 {
+      jumping = false;
       physics_apply_impulse(x,y,0, jspd);
       }
 }
 
-//Spell1
+//Punch
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
 instance_create(x,y,obj_spell_01);
 cd_skill_01 = 1
@@ -114,6 +144,18 @@ with obj_skill do instance_destroy()
 with obj_skillup do instance_destroy()
 } else if skill_key &amp;&amp; !instance_exists(obj_skill){
   instance_create(100,100,obj_skill)
+}
+/*
+//Ladder
+if place_meeting(x,y,obj_ladder){
+   phy_speed = 0;   
+}
+
+if (place_meeting(x,y,obj_ladder) &amp;&amp; key_jump){
+   phy_speed_y = cspd;
+}
+if (place_meeting(x,y,obj_ladder) &amp;&amp; key_down){
+   phy_speed_y = -cspd;
 }
 </string>
           </argument>

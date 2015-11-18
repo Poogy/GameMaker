@@ -34,7 +34,9 @@
     <background>background\tile_ramp1</background>
     <background>background\tile_ramp2</background>
   </backgrounds>
-  <paths name="paths"/>
+  <paths name="paths">
+    <path>paths\pth_01</path>
+  </paths>
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
   </scripts>
