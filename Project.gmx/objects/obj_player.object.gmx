@@ -132,7 +132,7 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_punch</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>0</kind>
@@ -166,30 +166,6 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="38">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>///hspd_final += 1
-hspd_final += 1
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
     <event eventtype="9" enumb="37">
       <action>
         <libid>1</libid>
@@ -207,7 +183,7 @@ hspd_final += 1
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>obj_punch</object>
+            <object>-100</object>
           </argument>
           <argument>
             <kind>0</kind>
