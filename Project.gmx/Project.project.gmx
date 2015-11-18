@@ -11,7 +11,7 @@
     <sprite>sprites\spr_enemy2</sprite>
     <sprite>sprites\spr_wall</sprite>
     <sprite>sprites\spr_movingplatform</sprite>
-    <sprite>sprites\spr_punch</sprite>
+    <sprite>sprites\spr_spell1</sprite>
     <sprite>sprites\spr_ladder</sprite>
     <sprite>sprites\spr_skillup</sprite>
   </sprites>
@@ -25,7 +25,7 @@
     <object>objects\obj_draw</object>
     <object>objects\obj_wall</object>
     <object>objects\obj_movingplatform</object>
-    <object>objects\obj_punch</object>
+    <object>objects\obj_spell1</object>
     <object>objects\obj_ladder</object>
     <object>objects\obj_view</object>
     <object>objects\obj_skillup</object>

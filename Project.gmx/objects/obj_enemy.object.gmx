@@ -97,7 +97,7 @@ if (place_meeting(x,y,obj_player))
         with (obj_player) hp_player -= 10;
         }
 }
-if (place_meeting(x,y,obj_punch))
+if (place_meeting(x,y,obj_spell1))
 {
     hp_enemy -= 10;
     if (hp_enemy &lt;= 0)

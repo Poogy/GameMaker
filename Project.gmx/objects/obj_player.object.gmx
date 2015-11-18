@@ -140,13 +140,14 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
 }
 //Punch
 if (right_arrow_key &amp;&amp; reload = 0) {
-instance_create(x,y,obj_punch);
+instance_create(x,y,obj_spell1);
 reload = 1
 alarm[0]=30;
+with (obj_spell1) image_angle = 180;
 }
 
 if (left_arrow_key &amp;&amp; reload = 0) {
-instance_create(x,y,obj_punch);
+instance_create(x,y,obj_spell1);
 reload = 1
 alarm[0]=30;
 }
