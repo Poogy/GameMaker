@@ -35,6 +35,7 @@ vspd = 0;
 cspd = 2;
 hp_player = 100;
 reload = 0;
+sp = 10;
 </string>
           </argument>
         </arguments>
@@ -80,13 +81,14 @@ reload = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Physics
+            <string>//Buttons
 var right_key = keyboard_check(ord('D'));
 var right_arrow_key = keyboard_check(vk_right);
 var left_key = keyboard_check(ord('A'));
 var left_arrow_key = keyboard_check(vk_left);
 var down_key = keyboard_check(ord('S'));
 var jump_key = keyboard_check(ord('W'));
+var skill_key = keyboard_check(ord('P'));
 
 //Check Air/Ground
 if place_meeting(x, y+1, obj_wall){
@@ -147,6 +149,13 @@ if (left_arrow_key &amp;&amp; reload = 0) {
 instance_create(x,y,obj_punch);
 reload = 1
 alarm[0]=30;
+}
+//Skill-menu
+if skill_key{
+   instance_create(100,100,obj_skill)
+} else if instance_exists(obj_skill) {
+with obj_skill do instance_destroy()
+with obj_skillup do instance_destroy()
 }
 </string>
           </argument>

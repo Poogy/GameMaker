@@ -13,6 +13,7 @@
     <sprite>sprites\spr_movingplatform</sprite>
     <sprite>sprites\spr_punch</sprite>
     <sprite>sprites\spr_ladder</sprite>
+    <sprite>sprites\spr_skillup</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
@@ -27,10 +28,13 @@
     <object>objects\obj_punch</object>
     <object>objects\obj_ladder</object>
     <object>objects\obj_view</object>
+    <object>objects\obj_skillup</object>
+    <object>objects\obj_text</object>
+    <object>objects\obj_skill</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
-    <room>rooms\room1</room>
+    <room>rooms\rm_skill</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
