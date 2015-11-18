@@ -14,6 +14,7 @@
     <sprite>sprites\spr_spell1</sprite>
     <sprite>sprites\spr_ladder</sprite>
     <sprite>sprites\spr_skillup</sprite>
+    <sprite>sprites\spr_monsterZERO</sprite>
   </sprites>
   <backgrounds name="background"/>
   <paths name="paths">
@@ -31,6 +32,7 @@
     <object>objects\obj_skillup</object>
     <object>objects\obj_text</object>
     <object>objects\obj_skill</object>
+    <object>objects\obj_monsterZero</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
