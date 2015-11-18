@@ -132,7 +132,7 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>-100</object>
+            <object>obj_punch</object>
           </argument>
           <argument>
             <kind>0</kind>
@@ -183,7 +183,7 @@ if (place_meeting(x, y,obj_ladder) &amp;&amp; down_key){
         <arguments>
           <argument>
             <kind>10</kind>
-            <object>-100</object>
+            <object>obj_punch</object>
           </argument>
           <argument>
             <kind>0</kind>
