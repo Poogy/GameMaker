@@ -13,6 +13,7 @@
       <sprite>sprites\spr_ladder</sprite>
       <sprite>sprites\spr_movingplatform</sprite>
       <sprite>sprites\spr_crate</sprite>
+      <sprite>sprites\spr_light</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player</sprite>
@@ -55,6 +56,7 @@
       <object>objects\obj_ladder</object>
       <object>objects\obj_movingplatform</object>
       <object>objects\obj_crate</object>
+      <object>objects\obj_light</object>
     </objects>
     <objects name="Player">
       <object>objects\obj_player</object>
