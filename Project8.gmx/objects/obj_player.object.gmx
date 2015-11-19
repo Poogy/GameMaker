@@ -290,8 +290,8 @@ if xp == xp_max{
    sp += 10;
    xp = 0;
    
-   part_emitter_region(parsys_xp,parem_xp,x-16,x+16,y+16,y,ps_shape_rectangle,ps_distr_invgaussian);
-   part_emitter_burst(parsys_xp,parem_xp,partype_xp,40);
+   part_emitter_region(parsys_xp,parem_xp,x-16,x+16,y+16,y+16,ps_shape_rectangle,ps_distr_invgaussian);
+   part_emitter_burst(parsys_xp,parem_xp,partype_xp,50 + irandom(50));
 }
 </string>
           </argument>
