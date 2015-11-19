@@ -3,7 +3,7 @@
   <spriteName>spr_punch</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -94,17 +94,17 @@ with (obj_player)
             <string>///Particles
 part_type_shape(partype,pt_shape_flare);
 
-part_type_size(partype,0.5,1.125,-0.01,0);
+part_type_size(partype,0.25,0.75,-0.01,0);
 //part_type_scale(partype,1,2);
 
 //part_type_speed(partype,5,10,-0.20,20);
 //part_type_direction(partype,45,135,-1,0);
 //part_type_gravity(partype,0.3,90);
 //part_type_orientation(partype,0,0,0,0,0);
-part_type_alpha2(partype,1,0);
-part_type_colour_rgb(partype,50,139,0,0,50,139);
+part_type_alpha2(partype,0,1);
+part_type_colour_rgb(partype,50,120,0,0,50,120);
 
-part_type_life(partype,room_speed*1,room_speed*1);
+part_type_life(partype,15,15);
 
 part_particles_create(parsys,x,y,partype,1);
 </string>
