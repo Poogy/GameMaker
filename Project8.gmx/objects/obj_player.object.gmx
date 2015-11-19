@@ -111,7 +111,7 @@ cd_skill_01 = 0;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Stats
+            <string>///Stats
 if armor_player &lt; 0 {armor_player = 0}
 </string>
           </argument>
@@ -181,6 +181,18 @@ if (punch_key &amp;&amp; cd_punch = 0)
     if (key_right)
     {
         instance_create(x+16,y,obj_punch);
+        cd_punch = 1;
+    }
+    if (key_left &amp;&amp; key_right )
+    {
+        instance_create(x,y-16,obj_punch);
+        with obj_punch image_angle = 270;
+        cd_punch = 1;
+    }
+        if (!key_left &amp;&amp; !key_right )
+    {
+        instance_create(x,y-16,obj_punch);
+        with obj_punch image_angle = 270;
         cd_punch = 1;
     }
 }

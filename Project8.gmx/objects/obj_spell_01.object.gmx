@@ -25,15 +25,7 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///INITS CONTROL
-if (keyboard_check_pressed(vk_left)){
-   physics_apply_force(x,y,-1000000,0);
-}
-   
-if (keyboard_check_pressed(vk_right)){
-   physics_apply_force(x,y,1000000,0);
-}
-</string>
+            <string></string>
           </argument>
         </arguments>
       </action>
@@ -84,7 +76,8 @@ parem = part_emitter_create(parsys);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>part_type_shape(partype,pt_shape_explosion);
+            <string>///Particle
+part_type_shape(partype,pt_shape_explosion);
 
 part_type_size(partype,0.25,0.75,-0.01,0);
 //part_type_scale(partype,1,2);
@@ -96,9 +89,36 @@ part_type_orientation(partype,0,359,0,0,true);
 part_type_alpha2(partype,1,0);
 part_type_colour_rgb(partype,100,255,0,0,0,0);
 
-part_type_life(partype,room_speed*1,room_speed*2);
+part_type_life(partype,30,90);
 
 part_particles_create(parsys,x,y,partype,1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (keyboard_check_pressed(vk_left)){
+   physics_apply_force(x,y,-1000000,0);
+}
+   
+if (keyboard_check_pressed(vk_right)){
+   physics_apply_force(x,y,1000000,0);
+}
 </string>
           </argument>
         </arguments>

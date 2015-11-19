@@ -70,6 +70,22 @@ with (obj_player)
             y = obj_player.y;
         }
     }
+    if (key_right &amp;&amp; key_left)
+    {
+        with (obj_punch)
+        {
+            x = obj_player.x;
+            y = obj_player.y - 16;
+        }
+    }
+    if (!key_right &amp;&amp; !key_left)
+    {
+        with (obj_punch)
+        {
+            x = obj_player.x;
+            y = obj_player.y - 16;
+        }
+    }
 }
 </string>
           </argument>
