@@ -86,7 +86,7 @@ parem = part_emitter_create(parsys);
             <kind>1</kind>
             <string>part_type_shape(partype,pt_shape_explosion);
 
-part_type_size(partype,0.5,1,-0.01,0);
+part_type_size(partype,0.25,0.75,-0.01,0);
 //part_type_scale(partype,1,2);
 
 //part_type_speed(partype,5,10,-0.20,20);

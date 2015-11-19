@@ -57,7 +57,8 @@
     <objects name="Controller">
       <object>objects\obj_view</object>
       <object>objects\obj_skill</object>
-      <object>objects\obj_skillup</object>
+      <object>objects\obj_skillup_01</object>
+      <object>objects\obj_skillup_02</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>

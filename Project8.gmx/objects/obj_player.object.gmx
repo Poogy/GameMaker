@@ -30,6 +30,10 @@ phy_fixed_rotation = true;
 
 hp_player = 100;
 hp_player_max = 100;
+armor_player = 100;
+armor_player_max = 100;
+armor_player_reduction = 0.1;
+
 spd = 400;
 jumping = false;
 jspd = -360;
@@ -89,6 +93,30 @@ cd_skill_01 = 0;
         </arguments>
       </action>
     </event>
+    <event eventtype="3" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>//Stats
+if armor_player &lt; 0 {armor_player = 0}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
@@ -123,6 +151,8 @@ if key_jump  {
       physics_apply_impulse(x,y,0, jspd);
       }
 }
+//Stats
+if hp_player &lt;= 0 {game_restart()}
 
 //Punch
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
