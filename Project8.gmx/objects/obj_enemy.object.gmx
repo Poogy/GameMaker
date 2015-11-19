@@ -135,7 +135,7 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
 if (place_meeting(x,y,obj_spell_01))
 {
     part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-    part_emitter_burst(parsys_blood,parem_blood,partBlood,40);
+    part_emitter_burst(parsys_blood,parem_blood,partBlood,40+ irandom(30));
     hp_enemy -= 10;
 }
 
@@ -148,7 +148,7 @@ if (hp_enemy &lt;= 0)
 if (place_meeting(x,y,obj_punch))
 {
     part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-    part_emitter_burst(parsys_blood,parem_blood,partBlood,40);
+    part_emitter_burst(parsys_blood,parem_blood,partBlood,40+ irandom(30));
     hp_enemy -= 2;
     with (obj_punch) {
     instance_destroy();
@@ -158,7 +158,7 @@ if (place_meeting(x,y,obj_punch))
 if (hp_enemy &lt;= 0)
     {
         part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-        part_emitter_burst(parsys_blood,parem_blood,partBlood,300);
+        part_emitter_burst(parsys_blood,parem_blood,partBlood,300+ irandom(100));
         with other instance_destroy();
     }
 
