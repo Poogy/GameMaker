@@ -38,7 +38,10 @@ spd = 400;
 jumping = false;
 jspd = -360;
 cspd = 10;
-
+lvl = 1;
+xp = 0;
+xp_previous = 10/3
+xp_max = xp_previous*(1.5*lvl)
 sp = 10;
 cd_skill_01 = 0;
 cd_punch = 0;
@@ -196,7 +199,40 @@ if (punch_key &amp;&amp; cd_punch = 0)
         cd_punch = 1;
     }
 }
+/*
+//Ladder
+if place_meeting(x,y,obj_ladder){
+   y = phy_position_y;   
+}
 
+if (place_meeting(x,y,obj_ladder) &amp;&amp; key_jump){
+   phy_speed_y = cspd;
+}
+if (place_meeting(x,y,obj_ladder) &amp;&amp; key_down){
+   phy_speed_y = -cspd;
+}
+*/
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Level System
 //Skill-menu
 if (skill_key &amp;&amp; instance_exists(obj_skill)) {
 with obj_skill do instance_destroy()
@@ -205,17 +241,13 @@ with obj_skillup_02 do instance_destroy()
 } else if skill_key &amp;&amp; !instance_exists(obj_skill){
   instance_create(100,100,obj_skill)
 }
-/*
-//Ladder
-if place_meeting(x,y,obj_ladder){
-   phy_speed = 0;   
-}
-
-if (place_meeting(x,y,obj_ladder) &amp;&amp; key_jump){
-   phy_speed_y = cspd;
-}
-if (place_meeting(x,y,obj_ladder) &amp;&amp; key_down){
-   phy_speed_y = -cspd;
+//Level-Up!
+if xp == xp_max{
+   xp_max = xp_previous
+   lvl += 1;
+   sp += 10;
+   xp = 0;
+   //Hier fettigen lvl-up effekt einbauen dando
 }
 </string>
           </argument>
