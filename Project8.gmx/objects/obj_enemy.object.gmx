@@ -33,7 +33,44 @@ dmg = 10;
 attack = true;
 spd = 400;
 max_xspeed = 4;
-dir = choose(1,-1);
+dir = choose(1,-1)
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Blood-Particles
+parsys_blood = part_system_create();
+partBlood = part_type_create();
+
+//Functions
+    part_type_shape(partBlood,pt_shape_disk);
+    part_type_size(partBlood,0.10,0.30,-0.01,0);
+    part_type_colour1(partBlood,175);
+    part_type_alpha2(partBlood,0.8,0.2);
+    part_type_speed(partBlood,1,3,0,0);
+    part_type_direction(partBlood,0,359,0,0);
+    part_type_gravity(partBlood,0.3,270);
+    part_type_blend(partBlood,1);
+    part_type_life(partBlood,15,30);
+    
+//Emitter
+parem_blood = part_emitter_create(parsys_blood);
 </string>
           </argument>
         </arguments>
@@ -97,6 +134,8 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
 //Damage System - Spell
 if (place_meeting(x,y,obj_spell_01))
 {
+    part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
+    part_emitter_burst(parsys_blood,parem_blood,partBlood,60);
     hp_enemy -= 10;
 }
 
@@ -108,6 +147,8 @@ if (hp_enemy &lt;= 0)
 //Damage System - Punch
 if (place_meeting(x,y,obj_punch))
 {
+    part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
+    part_emitter_burst(parsys_blood,parem_blood,partBlood,60);
     hp_enemy -= 2;
     with (obj_punch) {
     instance_destroy();
@@ -116,6 +157,8 @@ if (place_meeting(x,y,obj_punch))
 }
 if (hp_enemy &lt;= 0)
     {
+        part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
+        part_emitter_burst(parsys_blood,parem_blood,partBlood,100);
         with other instance_destroy();
     }
 
