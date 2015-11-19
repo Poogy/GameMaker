@@ -45,6 +45,8 @@
   </paths>
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
+    <script>scripts\scr_bloodC.gml</script>
+    <script>scripts\scr_bloodS.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_cd</font>

@@ -49,6 +49,48 @@ cd_punch = 0;
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Particles
+
+//Particle system for lvl-up
+parsys_xp = part_system_create();
+partype_xp = part_type_create();
+parem_xp = part_emitter_create(parsys_xp);
+
+//Particle Functions for lvl-up
+part_type_shape(partype_xp,pt_shape_spark);
+part_type_size(partype_xp,0.25,0.75,-0.01,0);
+part_type_scale(partype_xp,1,1);
+
+part_type_alpha2(partype_xp,0.2,1);
+part_type_speed(partype_xp,0.1,0.4,0,0);
+part_type_direction(partype_xp,0,359,0,0);
+part_type_blend(partype_xp,true);
+
+part_type_gravity(partype_xp,0.2,90);
+part_type_orientation(partype_xp,0,90,0,0,true);
+part_type_colour_rgb(partype_xp,0,255,0,255,0,255);
+
+part_type_life(partype_xp,120,180);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="1">
       <action>
@@ -247,7 +289,9 @@ if xp == xp_max{
    lvl += 1;
    sp += 10;
    xp = 0;
-   //Hier fettigen lvl-up effekt einbauen dando
+   
+   part_emitter_region(parsys_xp,parem_xp,x-16,x+16,y+16,y,ps_shape_rectangle,ps_distr_invgaussian);
+   part_emitter_burst(parsys_xp,parem_xp,partype_xp,40);
 }
 </string>
           </argument>

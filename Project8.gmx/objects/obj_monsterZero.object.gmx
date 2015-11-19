@@ -32,9 +32,9 @@ partype = part_type_create();
 parem = part_emitter_create(parsys);
 
 //Functions
-    part_type_shape(partype,pt_shape_spark);
+    part_type_shape(partype,pt_shape_star);
 
-    part_type_size(partype,0.1,0.4,-0.01,1);
+    part_type_size(partype,0.1,0.3,-0.01,0);
     part_type_scale(partype,1,1);
 
     part_type_alpha2(partype,1,0);
@@ -71,7 +71,7 @@ if (place_meeting(x,y,obj_player))
 {
     with other instance_destroy();
     
-    part_emitter_region(parsys,parem,x-13,x+13,y-18,y+18,ps_shape_diamond,ps_distr_invgaussian);
+    part_emitter_region(parsys,parem,x-13,x+13,y-18,y+18,ps_shape_line,ps_distr_invgaussian);
     part_emitter_burst(parsys,parem,partype,5);
     with (obj_player)
     {
