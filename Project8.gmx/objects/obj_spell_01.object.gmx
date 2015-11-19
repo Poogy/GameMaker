@@ -3,7 +3,7 @@
   <spriteName>spr_spell1</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-11</depth>
+  <depth>2</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -67,7 +67,7 @@ parem = part_emitter_create(parsys);
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="0">
+    <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -86,7 +86,7 @@ parem = part_emitter_create(parsys);
             <kind>1</kind>
             <string>part_type_shape(partype,pt_shape_explosion);
 
-part_type_size(partype,0.125,0.25,-0.01,0);
+part_type_size(partype,0.5,1,-0.01,0);
 //part_type_scale(partype,1,2);
 
 //part_type_speed(partype,5,10,-0.20,20);
@@ -94,7 +94,7 @@ part_type_size(partype,0.125,0.25,-0.01,0);
 part_type_gravity(partype,0.3,90);
 part_type_orientation(partype,0,359,0,0,true);
 part_type_alpha2(partype,1,0);
-part_type_colour_rgb(partype,0,255,0,0,0,0);
+part_type_colour_rgb(partype,100,255,0,0,0,0);
 
 part_type_life(partype,room_speed*1,room_speed*2);
 
