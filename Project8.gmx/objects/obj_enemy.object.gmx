@@ -94,7 +94,7 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
     attack = false;
     alarm[0] = 60;       
 }
-
+//Damage System - Spell
 if (place_meeting(x,y,obj_spell_01))
 {
     hp_enemy -= 10;
@@ -104,6 +104,21 @@ if (hp_enemy &lt;= 0)
     {
         with other instance_destroy();
     }
+
+//Damage System - Punch
+if (place_meeting(x,y,obj_punch))
+{
+    hp_enemy -= 2;
+    with (obj_punch) {
+    instance_destroy();
+    with obj_player cd_punch = 0;
+    }
+}
+if (hp_enemy &lt;= 0)
+    {
+        with other instance_destroy();
+    }
+
 </string>
           </argument>
         </arguments>

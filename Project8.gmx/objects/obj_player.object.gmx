@@ -41,6 +41,7 @@ cspd = 10;
 
 sp = 10;
 cd_skill_01 = 0;
+cd_punch = 0;
 </string>
           </argument>
         </arguments>
@@ -154,10 +155,10 @@ if key_jump  {
 //Stats
 if hp_player &lt;= 0 {game_restart()}
 
-//Punch
+//Spell
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
 instance_create(x,y,obj_spell_01);
-cd_skill_01 = 1
+cd_skill_01 = 1;
 alarm[0]=30;
 with (obj_spell_01) image_angle = 180;
 }
@@ -168,10 +169,27 @@ cd_skill_01 = 1
 alarm[0]=30;
 }
 
+//Punch
+if (punch_key &amp;&amp; cd_punch = 0)
+{
+    if (key_left)
+    {
+        instance_create(x-16,y,obj_punch);
+        with obj_punch image_angle = 180;
+        cd_punch = 1;
+    }
+    if (key_right)
+    {
+        instance_create(x+16,y,obj_punch);
+        cd_punch = 1;
+    }
+}
+
 //Skill-menu
 if (skill_key &amp;&amp; instance_exists(obj_skill)) {
 with obj_skill do instance_destroy()
-with obj_skillup do instance_destroy()
+with obj_skillup_01 do instance_destroy()
+with obj_skillup_02 do instance_destroy()
 } else if skill_key &amp;&amp; !instance_exists(obj_skill){
   instance_create(100,100,obj_skill)
 }

@@ -28,8 +28,8 @@
     </sprites>
     <sprites name="Spells">
       <sprite>sprites\spr_spell1</sprite>
+      <sprite>sprites\spr_punch</sprite>
     </sprites>
-    <sprite>sprites\spr_punch</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_box1</background>
@@ -55,6 +55,7 @@
       <object>objects\obj_player</object>
     </objects>
     <objects name="Spells">
+      <object>objects\obj_punch</object>
       <object>objects\obj_spell_01</object>
     </objects>
     <objects name="Controller">
