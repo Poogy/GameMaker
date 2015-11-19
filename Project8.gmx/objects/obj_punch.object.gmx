@@ -8,6 +8,32 @@
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
+    <event eventtype="0" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Particle System
+parsys = part_system_create();
+partype = part_type_create();
+parem = part_emitter_create(parsys);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="3" enumb="2">
       <action>
         <libid>1</libid>
@@ -25,7 +51,8 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>with (obj_player)
+            <string>///Direction of Punch
+with (obj_player)
 {
     if (key_right)
     {
@@ -43,6 +70,68 @@
             y = obj_player.y;
         }
     }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Particles
+part_type_shape(partype,pt_shape_flare);
+
+part_type_size(partype,0.5,1.125,-0.01,0);
+//part_type_scale(partype,1,2);
+
+//part_type_speed(partype,5,10,-0.20,20);
+//part_type_direction(partype,45,135,-1,0);
+//part_type_gravity(partype,0.3,90);
+//part_type_orientation(partype,0,0,0,0,0);
+part_type_alpha2(partype,1,0);
+part_type_colour_rgb(partype,50,139,0,0,50,139);
+
+part_type_life(partype,room_speed*1,room_speed*1);
+
+part_particles_create(parsys,x,y,partype,1);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (place_meeting(x,y,obj_wall)) {
+instance_destroy();
+with obj_player cd_punch = 0;
 }
 </string>
           </argument>
@@ -81,6 +170,32 @@
           <argument>
             <kind>1</kind>
             <string>with obj_player cd_punch = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="7" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Particle Destroy
+part_system_destroy(parsys);
+part_type_destroy(partype);
+part_emitter_destroy(parsys,parem);
 </string>
           </argument>
         </arguments>
