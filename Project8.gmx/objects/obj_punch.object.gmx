@@ -120,7 +120,7 @@ part_type_size(partype,0.25,0.75,-0.01,0);
 part_type_alpha2(partype,0,1);
 part_type_colour_rgb(partype,50,120,0,0,50,120);
 
-part_type_life(partype,15,15);
+part_type_life(partype,30,60);
 
 part_particles_create(parsys,x,y,partype,1);
 </string>
