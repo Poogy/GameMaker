@@ -31,8 +31,9 @@
       <sprite>sprites\spr_monsterZERO</sprite>
     </sprites>
     <sprites name="Spells">
-      <sprite>sprites\spr_spell1</sprite>
       <sprite>sprites\spr_punch</sprite>
+      <sprite>sprites\spr_spell01</sprite>
+      <sprite>sprites\spr_spell02</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -42,6 +43,7 @@
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_01</path>
+    <path>paths\pth_spell02</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
@@ -67,6 +69,7 @@
     <objects name="Spells">
       <object>objects\obj_punch</object>
       <object>objects\obj_spell_01</object>
+      <object>objects\obj_spell_02</object>
     </objects>
     <objects name="Controller">
       <object>objects\obj_view</object>
