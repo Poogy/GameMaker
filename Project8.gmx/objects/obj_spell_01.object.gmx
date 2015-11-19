@@ -94,11 +94,11 @@ part_particles_create(parsys,x,y,partype,1);
             <kind>1</kind>
             <string>///Controlls
 if (keyboard_check_pressed(vk_left)){
-   physics_apply_force(x,y,-1000000,-200000);
+   physics_apply_force(x,y,-1000000,-180000);
 }
    
 if (keyboard_check_pressed(vk_right)){
-   physics_apply_force(x,y,1000000,-200000);
+   physics_apply_force(x,y,1000000,-180000);
 }
 </string>
           </argument>
