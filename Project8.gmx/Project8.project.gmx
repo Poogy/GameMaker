@@ -22,6 +22,8 @@
     </sprites>
     <sprites name="Skills">
       <sprite>sprites\spr_skillup</sprite>
+      <sprite>sprites\spr_cd</sprite>
+      <sprite>sprites\spr_skill_01</sprite>
     </sprites>
     <sprites name="Items">
       <sprite>sprites\spr_monsterZERO</sprite>
@@ -42,6 +44,9 @@
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
   </scripts>
+  <fonts name="fonts">
+    <font>fonts\fnt_cd</font>
+  </fonts>
   <objects name="objects">
     <objects name="World">
       <object>objects\obj_wall</object>
@@ -63,6 +68,9 @@
       <object>objects\obj_skill</object>
       <object>objects\obj_skillup_01</object>
       <object>objects\obj_skillup_02</object>
+      <object>objects\obj_cd</object>
+      <object>objects\cont_gui</object>
+      <object>objects\obj_skillicon</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>
