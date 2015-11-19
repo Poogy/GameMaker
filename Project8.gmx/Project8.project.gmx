@@ -28,6 +28,7 @@
     <sprites name="Spells">
       <sprite>sprites\spr_spell1</sprite>
     </sprites>
+    <sprite>sprites\spr_punch</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_box1</background>
