@@ -202,6 +202,7 @@ if key_jump  {
 //Stats
 if hp_player &lt;= 0 {game_restart()}
 
+
 //Spell
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
 instance_create(x,y,obj_spell_01);
@@ -218,16 +219,8 @@ cd_skill_02 = 1;
 alarm[0]=30;
 }
 if (spell02_key &amp;&amp; cd_skill_02 = 0) {
-instance_create(x,y,obj_spell_02);
+instance_create(x+16,y,obj_spell_02);
 cd_skill_01 = 1;
-cd_skill_02 = 1;
-alarm[0]=90;
-with (obj_spell_02) image_angle = 180;
-}
-
-if (spell02_key &amp;&amp; cd_skill_02 = 0) {
-instance_create(x,y,obj_spell_02);
-cd_skill_01 = 1
 cd_skill_02 = 1;
 alarm[0]=90;
 }

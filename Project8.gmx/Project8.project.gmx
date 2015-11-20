@@ -43,7 +43,6 @@
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_01</path>
-    <path>paths\pth_spell02</path>
   </paths>
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
