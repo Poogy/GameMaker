@@ -26,13 +26,17 @@
           <argument>
             <kind>1</kind>
             <string>///Init Variables
-spell02_key = keyboard_check_pressed(ord('B'));
+direction = obj_player.direction
+speed = 8
+alarm[0] = 120
+back = 0;
+AllowDestroy = false;
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="3" enumb="2">
+    <event eventtype="2" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -49,30 +53,32 @@ spell02_key = keyboard_check_pressed(ord('B'));
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Flug-Kurve
-//Path
-if (spell02_key) {
-    path_start(pth_spell02,200,0,true);
-    with (obj_player) {
-        if (key_left) {
-            with obj_spell_02 {
-            path_change_point(pth_spell02,0,obj_player.x,obj_player.y,200);
-            path_change_point(pth_spell02,1,obj_player.x-256,obj_player.y-256,200);
-            path_change_point(pth_spell02,2,obj_player.x,obj_player.y,200);
-            }
-        }
-        if (key_right) {
-            with obj_spell_02 {
-            path_change_point(pth_spell02,0,obj_player.x,obj_player.y,200);
-            path_change_point(pth_spell02,1,obj_player.x+256,obj_player.y+256,200);
-            path_change_point(pth_spell02,2,obj_player.x,obj_player.y,200);
-            }
-        }
-    }
-        path_set_precision(pth_spell02,8);
-        path_set_kind(pth_spell02,1);
-        path_set_closed(pth_spell02,false);
-}
+            <string>AllowDestroy = true;
+direction = point_direction(x,y,obj_player.x,obj_player.y);
+back = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (back = 1) move_towards_point(obj_player.x,obj_player.y,10);
 </string>
           </argument>
         </arguments>
@@ -94,23 +100,33 @@ if (spell02_key) {
         <isnot>0</isnot>
       </action>
     </event>
-    <event eventtype="4" ename="obj_wall">
+    <event eventtype="4" ename="obj_player">
       <action>
         <libid>1</libid>
-        <id>203</id>
-        <kind>0</kind>
+        <id>603</id>
+        <kind>7</kind>
         <userelative>0</userelative>
         <isquestion>0</isquestion>
         <useapplyto>-1</useapplyto>
-        <exetype>1</exetype>
-        <functionname>action_kill_object</functionname>
+        <exetype>2</exetype>
+        <functionname></functionname>
         <codestring></codestring>
         <whoName>self</whoName>
         <relative>0</relative>
         <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>if (AllowDestroy = true)
+{
+instance_destroy()
+}
+</string>
+          </argument>
+        </arguments>
       </action>
     </event>
-    <event eventtype="7" enumb="8">
+    <event eventtype="4" ename="obj_wall">
       <action>
         <libid>1</libid>
         <id>203</id>
