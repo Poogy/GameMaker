@@ -70,20 +70,20 @@ with (obj_player)
             y = obj_player.y;
         }
     }
-    if (key_right &amp;&amp; key_left)
+    if (direction = 180)
     {
         with (obj_punch)
         {
-            x = obj_player.x;
-            y = obj_player.y - 16;
+            x = obj_player.x-16;
+            y = obj_player.y;
         }
     }
-    if (!key_right &amp;&amp; !key_left)
+    if (direction = 0)
     {
         with (obj_punch)
         {
-            x = obj_player.x;
-            y = obj_player.y - 16;
+            x = obj_player.x+16;
+            y = obj_player.y;
         }
     }
 }

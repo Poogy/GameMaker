@@ -27,15 +27,14 @@
             <kind>1</kind>
             <string>///Physical Particle
 //The System
-physics_particle_set_radius(1);
-physics_particle_set_max_count(40000000);
-flags = phy_particle_flag_water|phy_particle_flag_tensile|phy_particle_flag_spring;
+physics_particle_set_radius(1.5);
+physics_particle_set_density(1);
+physics_particle_set_damping(1);
+physics_particle_set_max_count(400000);
+flags = phy_particle_flag_water|phy_particle_flag_tensile|phy_particle_flag_viscous;
 
 //Alarm
-alarm[0] = 120;
-//Position
-x = obj_player.x;
-y = obj_player.y;
+alarm[0] = 90;
 </string>
           </argument>
         </arguments>
@@ -59,7 +58,8 @@ y = obj_player.y;
           <argument>
             <kind>1</kind>
             <string>///Demolition
-
+instance_destroy();
+physics_particle_delete_region_circle(x,y,100000);
 </string>
           </argument>
         </arguments>
@@ -82,7 +82,19 @@ y = obj_player.y;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>part = physics_particle_create(flags,x,y,0,0,c_orange,1,1);
+            <string>x = obj_player.x;
+y = obj_player.y;
+with (obj_player)
+{
+    if (direction = 180)
+    {
+        with (obj_spell_02) physics_particle_create(flags,x-16,y,10000,0,c_white,1,1);
+    }
+        if (direction = 0)
+    {
+        with (obj_spell_02) physics_particle_create(flags,x+16,y,10000,0,c_white,1,1);
+    }
+}
 
 </string>
           </argument>

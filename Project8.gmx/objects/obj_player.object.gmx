@@ -186,8 +186,8 @@ if armor_player &lt; 0 {armor_player = 0}
 scr_get_input();
 
 //Movement
-if key_left  {physics_apply_force(x,y,-spd,-20)};
-if key_right {physics_apply_force(x,y,spd,-20)};
+if key_left  {physics_apply_force(x,y,-spd,-20); direction = 180};
+if key_right {physics_apply_force(x,y,spd,-20); direction = 0};
 if key_jump  {
    if place_meeting(x,y+1,obj_wall){
       jumping = true;
@@ -203,7 +203,7 @@ if key_jump  {
 if hp_player &lt;= 0 {game_restart()}
 
 
-//Spell
+//Spell1
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
 instance_create(x,y,obj_spell_01);
 cd_skill_01 = 1;
@@ -218,13 +218,13 @@ cd_skill_01 = 1
 cd_skill_02 = 1;
 alarm[0]=30;
 }
+//Spell2
 if (spell02_key &amp;&amp; cd_skill_02 = 0) {
-instance_create(x+16,y,obj_spell_02);
+instance_create(x,y,obj_spell_02);
 cd_skill_01 = 1;
 cd_skill_02 = 1;
 alarm[0]=90;
 }
-
 //Punch
 if (punch_key &amp;&amp; cd_punch = 0)
 {
