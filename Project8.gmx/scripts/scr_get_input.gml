@@ -7,4 +7,4 @@ left_arrow_key = keyboard_check_pressed(vk_left);
 right_arrow_key = keyboard_check_pressed(vk_right);
 punch_key = keyboard_check_pressed(ord("E"));
 skill_key = keyboard_check_pressed(ord('P'));
-spell02_key = keyboard_check_pressed(ord('B'));
+spell02_key = keyboard_check(ord('B'));

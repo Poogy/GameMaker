@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>0</depth>
+  <depth>20</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,23 +25,21 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Physical Particle
-//The System
-physics_particle_set_radius(1.5);
-physics_particle_set_density(1);
-physics_particle_set_damping(1);
+            <string>///Particle System
+physics_particle_set_radius(5);
 physics_particle_set_gravity_scale(0.1);
-physics_particle_set_max_count(400000);
+physics_particle_set_max_count(200);
 flags = phy_particle_flag_water|phy_particle_flag_tensile|phy_particle_flag_viscous;
 
-//Alarm
-alarm[0] = 90;
+physics_particle_group_begin(flags,0,x,y,0,0,0,0,c_white,1,1,1);
+physics_particle_group_box(120,80);
+physics_particle_group_end();
 </string>
           </argument>
         </arguments>
       </action>
     </event>
-    <event eventtype="2" enumb="0">
+    <event eventtype="3" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -58,44 +56,8 @@ alarm[0] = 90;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Demolition
-instance_destroy();
-</string>
-          </argument>
-        </arguments>
-      </action>
-    </event>
-    <event eventtype="3" enumb="2">
-      <action>
-        <libid>1</libid>
-        <id>603</id>
-        <kind>7</kind>
-        <userelative>0</userelative>
-        <isquestion>0</isquestion>
-        <useapplyto>-1</useapplyto>
-        <exetype>2</exetype>
-        <functionname></functionname>
-        <codestring></codestring>
-        <whoName>self</whoName>
-        <relative>0</relative>
-        <isnot>0</isnot>
-        <arguments>
-          <argument>
-            <kind>1</kind>
-            <string>x = obj_player.x;
-y = obj_player.y;
-with (obj_player)
-{
-    if (direction = 180)
-    {
-        with (obj_spell_02) part = physics_particle_create(flags,x-16,y,-100000000,-100000,c_white,1,1);
-    }
-        if (direction = 0)
-    {
-        with (obj_spell_02) part = physics_particle_create(flags,x+16,y,100000000,-100000,c_white,1,1);
-    }
-}
-
+            <string>//Create Particles
+physics_particle_create(flags,x,y,5-random(10),5-random(10),c_white,1,1);
 </string>
           </argument>
         </arguments>
@@ -118,7 +80,72 @@ with (obj_player)
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_particle_draw(flags,1,spr_spell02,0);
+            <string>var count = physics_particle_count();
+var dataFlags = phy_particle_data_flag_position | phy_particle_data_flag_velocity;
+var heat = 50; //Color threshold limit - lover numbers for more, higher for more red
+draw_set_blend_mode(bm_normal);
+
+if (count &gt; 0)
+{
+    var buffer = buffer_create(count * 4,buffer_grow, 4);
+    physics_particle_get_data(buffer,dataFlags);
+    for (var n = 0; n &lt; count; n++)
+    {
+        var xx = buffer_read(buffer,buffer_f32);
+        var yy = buffer_read(buffer,buffer_f32);
+        var xvel = buffer_read(buffer,buffer_f32); //xVelocity
+        var yvel = buffer_read(buffer,buffer_f32); //yVelocity
+        var vres = sqrt(abs((xvel^2)+(yvel^2))); //vResort
+        var vcol = vres;
+        var dir = -1*radtodeg(arctan2(yvel,xvel))+90;
+        if (vres &gt; heat)
+        {
+            vcol = heat;
+        }
+        col = make_colour_rgb(255,(vcol/heat)*240+15,0);
+        if (vres &gt;= 8)
+        {
+            draw_sprite_ext(spr_dropBack,0,xx,yy,1/(vres/8),.75+.25/(vres/8),dir,col,1);
+        }
+        else
+        {
+            draw_sprite_ext(spr_dropBack,0,xx,yy,1,1,dir,col,1);
+        }
+    }
+    buffer_delete(buffer);
+}
+
+if (count &gt; 0)
+{
+    var buffer = buffer_create(count * 4,buffer_grow, 4);
+    physics_particle_get_data(buffer,dataFlags);
+    for (var n = 0; n &lt; count; n++)
+    {
+        draw_set_blend_mode(bm_add);
+        var xx = buffer_read(buffer,buffer_f32);
+        var yy = buffer_read(buffer,buffer_f32);
+        var xvel = buffer_read(buffer,buffer_f32); //xVelocity
+        var yvel = buffer_read(buffer,buffer_f32); //yVelocity
+        var vres = sqrt(abs((xvel^2)+(yvel^2))); //vResort
+        var vcol = vres;
+        var dir = -1*radtodeg(arctan2(yvel,xvel))+90;
+        if (vres &gt; heat)
+        {
+            vcol = heat;
+        }
+        col = make_colour_rgb(255,(vcol/heat)*240+15,0);
+        if (vres &gt;= 8)
+        {
+            draw_sprite_ext(spr_drop,0,xx,yy,1/(vres/8),.75+.25/(vres/8),dir,col,1);
+        }
+        else
+        {
+            draw_sprite_ext(spr_drop,0,xx,yy,1,1,dir,col,1);
+        }
+    }
+    buffer_delete(buffer);
+}
+draw_set_blend_mode(bm_normal);
 </string>
           </argument>
         </arguments>

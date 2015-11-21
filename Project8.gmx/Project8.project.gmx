@@ -14,6 +14,8 @@
       <sprite>sprites\spr_movingplatform</sprite>
       <sprite>sprites\spr_crate</sprite>
       <sprite>sprites\spr_light</sprite>
+      <sprite>sprites\spr_drop</sprite>
+      <sprite>sprites\spr_dropBack</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_exp</sprite>
@@ -60,6 +62,7 @@
       <object>objects\obj_ladder</object>
       <object>objects\obj_movingplatform</object>
       <object>objects\obj_crate</object>
+      <object>objects\obj_lava</object>
       <object>objects\obj_light</object>
     </objects>
     <objects name="Player">
