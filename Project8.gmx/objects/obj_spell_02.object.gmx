@@ -31,7 +31,7 @@ physics_particle_set_radius(1.5);
 physics_particle_set_density(1);
 physics_particle_set_damping(1);
 physics_particle_set_gravity_scale(0.1);
-physics_particle_set_max_count(1500);
+physics_particle_set_max_count(2000);
 flags = phy_particle_flag_water|phy_particle_flag_tensile|phy_particle_flag_viscous;
 
 //Alarm
