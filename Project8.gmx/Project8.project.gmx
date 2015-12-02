@@ -30,7 +30,7 @@
       <sprite>sprites\spr_skill_01</sprite>
     </sprites>
     <sprites name="Items">
-      <sprite>sprites\spr_item_monster_zero</sprite>
+      <sprite>sprites\spr_monsterZERO</sprite>
     </sprites>
     <sprites name="Spells">
       <sprite>sprites\spr_punch</sprite>
