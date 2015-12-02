@@ -4,7 +4,7 @@
   <solid>0</solid>
   <visible>-1</visible>
   <depth>0</depth>
-  <persistent>0</persistent>
+  <persistent>-1</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
   <events>
@@ -26,10 +26,12 @@
           <argument>
             <kind>1</kind>
             <string>///Variables
-phy_fixed_rotation = true;
+//phy_fixed_rotation = true
 
 hp_player = 100;
 hp_player_max = 100;
+mp_player = 100;
+mp_player_max = 100;
 armor_player = 100;
 armor_player_max = 100;
 armor_player_reduction = 0.1;
@@ -184,6 +186,11 @@ if armor_player &lt; 0 {armor_player = 0}
             <kind>1</kind>
             <string>//Scripts
 scr_get_input();
+//Bg animation
+if room!=rm_inv{
+background_x[0] = -phy_position_x/5;
+background_y[0] = -phy_position_y/5;
+}
 
 //Movement
 if key_left  {physics_apply_force(x,y,-spd,-20); direction = 180};
@@ -202,6 +209,9 @@ if key_jump  {
 //Stats
 if hp_player &lt;= 0 {game_restart()}
 
+//Inventar
+if inventory_key &amp;&amp; room!=rm_inv {room_goto(rm_inv)}
+if inventory_key &amp;&amp; room==rm_inv {room_goto_previous()}
 
 //Spell1
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {

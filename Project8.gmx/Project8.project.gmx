@@ -30,18 +30,26 @@
       <sprite>sprites\spr_skill_01</sprite>
     </sprites>
     <sprites name="Items">
-      <sprite>sprites\spr_monsterZERO</sprite>
+      <sprite>sprites\spr_item_monster_zero</sprite>
     </sprites>
     <sprites name="Spells">
       <sprite>sprites\spr_punch</sprite>
       <sprite>sprites\spr_spell01</sprite>
       <sprite>sprites\spr_spell02</sprite>
     </sprites>
+    <sprites name="Inventar">
+      <sprite>sprites\spr_slot</sprite>
+    </sprites>
+    <sprite>sprites\spr_item_mana_potion</sprite>
+    <sprite>sprites\spr_item_poison</sprite>
+    <sprite>sprites\spr_item_rock</sprite>
+    <sprite>sprites\spr_item_health_potion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_box1</background>
     <background>background\tile_ramp1</background>
     <background>background\tile_ramp2</background>
+    <background>background\bg_01</background>
   </backgrounds>
   <paths name="paths">
     <path>paths\pth_01</path>
@@ -50,9 +58,21 @@
     <script>scripts\scr_get_input.gml</script>
     <script>scripts\scr_bloodC.gml</script>
     <script>scripts\scr_bloodS.gml</script>
+    <scripts name="Inventar">
+      <script>scripts\scr_remove_item.gml</script>
+      <script>scripts\scr_add_item.gml</script>
+      <script>scripts\scr_pickup.gml</script>
+    </scripts>
+    <scripts name="Items">
+      <script>scripts\scr_monster_zero.gml</script>
+    </scripts>
+    <script>scripts\scr_use_mana_potion.gml</script>
+    <script>scripts\scr_use_poison.gml</script>
+    <script>scripts\scr_use_health_potion.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_cd</font>
+    <font>fonts\fnt_stack</font>
   </fonts>
   <objects name="objects">
     <objects name="World">
@@ -89,9 +109,12 @@
     <objects name="Items">
       <object>objects\obj_monsterZero</object>
     </objects>
+    <object>objects\obj_pickup_stone</object>
+    <object>objects\obj_inventory</object>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
+    <room>rooms\rm_inv</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>
