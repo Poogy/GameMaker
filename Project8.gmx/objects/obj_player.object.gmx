@@ -137,7 +137,6 @@ part_type_life(partype_xp,120,180);
             <kind>1</kind>
             <string>///Skill1 + Skill2 Cooldown
 cd_skill_01 = 0;
-cd_skill_02 = 0;
 </string>
           </argument>
         </arguments>
@@ -227,13 +226,6 @@ instance_create(x,y,obj_spell_01);
 cd_skill_01 = 1
 cd_skill_02 = 1;
 alarm[0]=30;
-}
-//Spell2
-if (spell02_key &amp;&amp; cd_skill_02 = 0) {
-instance_create(x,y,obj_spell_02);
-cd_skill_01 = 1;
-cd_skill_02 = 1;
-alarm[0]=90;
 }
 //Punch
 if (punch_key &amp;&amp; cd_punch = 0)

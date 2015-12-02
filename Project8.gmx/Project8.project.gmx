@@ -35,7 +35,6 @@
     <sprites name="Spells">
       <sprite>sprites\spr_punch</sprite>
       <sprite>sprites\spr_spell01</sprite>
-      <sprite>sprites\spr_spell02</sprite>
     </sprites>
     <sprites name="Inventar">
       <sprite>sprites\spr_slot</sprite>
@@ -91,7 +90,6 @@
     <objects name="Spells">
       <object>objects\obj_punch</object>
       <object>objects\obj_spell_01</object>
-      <object>objects\obj_spell_02</object>
     </objects>
     <objects name="Controller">
       <object>objects\obj_view</object>
