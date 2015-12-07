@@ -1,4 +1,4 @@
-///scr_monster_zero(inventory slot)
+///scr_use_monster_zero(inventory slot)
 obj_player.spd /= 2;
 obj_player.jspd *= 2;
 gravity *= 2;

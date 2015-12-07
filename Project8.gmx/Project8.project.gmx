@@ -20,6 +20,7 @@
     <sprites name="Player">
       <sprite>sprites\spr_exp</sprite>
       <sprite>sprites\spr_player</sprite>
+      <sprite>sprites\spr_player_sword</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_enemy</sprite>
@@ -30,19 +31,17 @@
       <sprite>sprites\spr_skill_01</sprite>
     </sprites>
     <sprites name="Items">
-      <sprite>sprites\spr_monsterZERO</sprite>
+      <sprite>sprites\spr_item_monster_zero</sprite>
+      <sprite>sprites\spr_potion</sprite>
+      <sprite>sprites\spr_sword</sprite>
     </sprites>
     <sprites name="Spells">
       <sprite>sprites\spr_punch</sprite>
       <sprite>sprites\spr_spell01</sprite>
     </sprites>
     <sprites name="Inventar">
-      <sprite>sprites\spr_slot</sprite>
+      <sprite>sprites\spr_inventory_box_mask</sprite>
     </sprites>
-    <sprite>sprites\spr_item_mana_potion</sprite>
-    <sprite>sprites\spr_item_poison</sprite>
-    <sprite>sprites\spr_item_rock</sprite>
-    <sprite>sprites\spr_item_health_potion</sprite>
   </sprites>
   <backgrounds name="background">
     <background>background\tile_box1</background>
@@ -58,16 +57,10 @@
     <script>scripts\scr_bloodC.gml</script>
     <script>scripts\scr_bloodS.gml</script>
     <scripts name="Inventar">
-      <script>scripts\scr_remove_item.gml</script>
-      <script>scripts\scr_add_item.gml</script>
-      <script>scripts\scr_pickup.gml</script>
+      <script>scripts\scr_draw_shadow.gml</script>
+      <script>scripts\scr_item_db.gml</script>
+      <script>scripts\scr_get_item_value.gml</script>
     </scripts>
-    <scripts name="Items">
-      <script>scripts\scr_monster_zero.gml</script>
-    </scripts>
-    <script>scripts\scr_use_mana_potion.gml</script>
-    <script>scripts\scr_use_poison.gml</script>
-    <script>scripts\scr_use_health_potion.gml</script>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_cd</font>
@@ -106,13 +99,19 @@
     </objects>
     <objects name="Items">
       <object>objects\obj_monsterZero</object>
+      <object>objects\obj_sword</object>
+      <object>objects\obj_potion</object>
     </objects>
-    <object>objects\obj_pickup_stone</object>
-    <object>objects\obj_inventory</object>
+    <objects name="Inventar">
+      <object>objects\obj_game_controller</object>
+      <object>objects\obj_inventory_box</object>
+      <object>objects\obj_sword_box</object>
+      <object>objects\obj_items</object>
+      <object>objects\obj_item_parrent</object>
+    </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
-    <room>rooms\rm_inv</room>
   </rooms>
   <help>
     <rtf>help.rtf</rtf>

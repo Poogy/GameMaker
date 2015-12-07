@@ -94,6 +94,29 @@ part_type_life(partype_xp,120,180);
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Inventar
+sword = -1; //Kein Schwert
+damage = 1; //Damage-Wert
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="2" enumb="1">
       <action>
@@ -185,11 +208,10 @@ if armor_player &lt; 0 {armor_player = 0}
             <kind>1</kind>
             <string>//Scripts
 scr_get_input();
+
 //Bg animation
-if room!=rm_inv{
 background_x[0] = -phy_position_x/5;
 background_y[0] = -phy_position_y/5;
-}
 
 //Movement
 if key_left  {physics_apply_force(x,y,-spd,-20); direction = 180};
@@ -207,10 +229,6 @@ if key_jump  {
 }
 //Stats
 if hp_player &lt;= 0 {game_restart()}
-
-//Inventar
-if inventory_key &amp;&amp; room!=rm_inv {room_goto(rm_inv)}
-if inventory_key &amp;&amp; room==rm_inv {room_goto_previous()}
 
 //Spell1
 if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
@@ -310,6 +328,32 @@ if xp == xp_max{
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Inventar
+if (sword != -1) { //Schwert haben
+   damage = scr_get_item_value(sword, 'damage'); //Dmg vom schwert verwenden
+} else {
+   damage = 1; //wenn net dann 1 was im create event steht
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
     <event eventtype="4" ename="obj_wall">
       <action>
@@ -334,6 +378,33 @@ if xp == xp_max{
         </arguments>
       </action>
     </event>
+    <event eventtype="8" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Inventar
+if (sword != -1) {
+   draw_sprite_ext(scr_get_item_value(sword, 'sprite'),0, x, y, 1, 1, image_angle, c_white, 1);
+}
+scr_draw_shadow(4);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
   </events>
   <PhysicsObject>-1</PhysicsObject>
   <PhysicsObjectSensor>0</PhysicsObjectSensor>
@@ -347,9 +418,9 @@ if xp == xp_max{
   <PhysicsObjectAwake>-1</PhysicsObjectAwake>
   <PhysicsObjectKinematic>0</PhysicsObjectKinematic>
   <PhysicsShapePoints>
-    <point>0,0</point>
-    <point>32,0</point>
     <point>32,32</point>
-    <point>0,32</point>
+    <point>64,32</point>
+    <point>64,64</point>
+    <point>32,64</point>
   </PhysicsShapePoints>
 </object>
