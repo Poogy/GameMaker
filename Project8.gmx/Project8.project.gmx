@@ -65,6 +65,7 @@
   <fonts name="fonts">
     <font>fonts\fnt_cd</font>
     <font>fonts\fnt_stack</font>
+    <font>fonts\fnt_pause</font>
   </fonts>
   <objects name="objects">
     <objects name="World">
@@ -93,6 +94,7 @@
       <object>objects\obj_exp</object>
       <object>objects\cont_gui</object>
       <object>objects\obj_skillicon</object>
+      <object>objects\obj_pause</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>

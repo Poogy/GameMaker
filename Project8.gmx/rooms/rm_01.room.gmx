@@ -134,6 +134,7 @@
     <instance objName="obj_inventory_box" x="120" y="32" name="inst_B5FC3EAD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_inventory_box" x="176" y="32" name="inst_00BF4AD4" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_inventory_box" x="232" y="32" name="inst_EFD8D0E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_pause" x="32" y="160" name="inst_5433860F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_box1" x="96" y="544" w="32" h="32" xo="0" yo="0" id="10000001" name="inst_9075E5D4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
