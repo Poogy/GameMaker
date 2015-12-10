@@ -67,7 +67,7 @@ if (keyboard_check_pressed(vk_escape))
         </arguments>
       </action>
     </event>
-    <event eventtype="8" enumb="64">
+    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -91,7 +91,7 @@ if (keyboard_check_pressed(vk_escape))
     draw_set_halign(fa_center);
     draw_set_font(fnt_pause);
     draw_set_color(c_white);
-    draw_text(view_xview/2+450,view_yview/2+100,"Pause Menu");
+    draw_text(view_xview/2+580,view_yview/2+100,"Pause Menu");
     draw_set_color(c_black);
 }
 </string>
