@@ -27,7 +27,7 @@
             <kind>1</kind>
             <string>///Create Item Variables
 global.game_state = 'run';
-global.item = -1; //Das Item was ich in der maus hab
+global.item = -1; //Das Item was ich in der maus hab; setzt es auf leer
 </string>
           </argument>
         </arguments>
@@ -50,7 +50,7 @@ global.item = -1; //Das Item was ich in der maus hab
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Game state
+            <string>///Inventar öffnen/schließen
 scr_get_input();
 if (inventory_key)
 switch (global.game_state) {
