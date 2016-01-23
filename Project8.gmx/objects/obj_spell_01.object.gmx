@@ -59,7 +59,7 @@ parem = part_emitter_create(parsys);
             <string>///Particle
 part_type_shape(partype,pt_shape_explosion);
 
-part_type_size(partype,0.25,0.75,-0.01,0);
+part_type_size(partype,0.25,0.35,-0.01,0);
 //part_type_scale(partype,1,2);
 
 //part_type_speed(partype,5,10,-0.20,20);
@@ -92,7 +92,8 @@ part_particles_create(parsys,x,y,partype,1);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (keyboard_check_pressed(vk_left)){
+            <string>///Control fixes
+if (keyboard_check_pressed(vk_left)){
    physics_apply_force(x,y,-1000000,0);
 }
    
