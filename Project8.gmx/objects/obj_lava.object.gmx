@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>20</depth>
+  <depth>500</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -30,10 +30,6 @@ physics_particle_set_radius(5);
 physics_particle_set_gravity_scale(0.1);
 physics_particle_set_max_count(2000);
 flags = phy_particle_flag_water|phy_particle_flag_tensile|phy_particle_flag_elastic;
-
-physics_particle_group_begin(flags,0,x,y,0,0,0,0,c_white,1,1,1);
-physics_particle_group_box(120,80);
-physics_particle_group_end();
 </string>
           </argument>
         </arguments>
@@ -82,7 +78,7 @@ physics_particle_create(flags,x,y,5-random(10),5-random(10),c_white,1,1);
             <kind>1</kind>
             <string>var count = physics_particle_count();
 var dataFlags = phy_particle_data_flag_position | phy_particle_data_flag_velocity;
-var heat = 50; //Color threshold limit - lover numbers for more, higher for more red
+var heat = 50; //Color threshold limit - lower numbers for less, higher for more red
 draw_set_blend_mode(bm_normal);
 
 if (count &gt; 0)
