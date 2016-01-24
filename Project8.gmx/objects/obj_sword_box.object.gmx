@@ -76,7 +76,7 @@ obj_player.sword = item;
             <kind>1</kind>
             <string>///Draw the inventory box and the item
 if (global.game_state == 'pause') {
-   draw_sprite_ext(spr_sword, 0, view_xview[0]+xstart+24, view_yview[0]+ystart+24, 1, 1, 0, c_black, .25);
+   draw_sprite_ext(spr_sword, 0, view_xview[0]+xstart+24, view_yview[0]+ystart+24, 1, 1, 0, c_black, .5);
 }
 
 //Inherit the rest of the draw event from the parent
