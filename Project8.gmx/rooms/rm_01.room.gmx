@@ -113,7 +113,7 @@ chase
     <instance objName="obj_enemy" x="608" y="192" name="inst_06883699" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy" x="256" y="384" name="inst_67F10CDC" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy" x="320" y="384" name="inst_391ADD5F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
-    <instance objName="obj_lava" x="1048" y="672" name="inst_82FBCB2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_lava" x="1056" y="640" name="inst_82FBCB2C" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="992" y="704" name="inst_15AAD7C1" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="992" y="672" name="inst_2EFEDC89" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_wall" x="992" y="640" name="inst_B99A252A" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
@@ -139,6 +139,9 @@ chase
     <instance objName="obj_inventory_box" x="232" y="32" name="inst_EFD8D0E5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_pause" x="32" y="160" name="inst_5433860F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_enemy02" x="200" y="672" name="inst_9EE385D5" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1024" y="320" name="inst_68DFC098" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_crate" x="1072" y="288" name="inst_9FFF1A38" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_wall" x="1056" y="320" name="inst_5FF19D9D" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_box1" x="96" y="544" w="32" h="32" xo="0" yo="0" id="10000001" name="inst_9075E5D4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
@@ -339,6 +342,8 @@ chase
     <tile bgName="tile_box1" x="992" y="384" w="32" h="32" xo="0" yo="0" id="10000197" name="inst_8A10BF54" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_box1" x="992" y="352" w="32" h="32" xo="0" yo="0" id="10000198" name="inst_356746F6" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
     <tile bgName="tile_box1" x="992" y="320" w="32" h="32" xo="0" yo="0" id="10000199" name="inst_DED61B1E" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_box1" x="1024" y="320" w="32" h="32" xo="0" yo="0" id="10000200" name="inst_469296DA" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
+    <tile bgName="tile_box1" x="1056" y="320" w="32" h="32" xo="0" yo="0" id="10000201" name="inst_0EBB567F" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
   </tiles>
   <PhysicsWorld>-1</PhysicsWorld>
   <PhysicsWorldTop>0</PhysicsWorldTop>

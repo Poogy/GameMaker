@@ -46,7 +46,6 @@ xp_previous = 10/3
 xp_max = xp_previous*(1.5*lvl)
 sp = 10;
 cd_skill_01 = 0;
-cd_skill_02 = 0;
 cd_punch = 0;
 </string>
           </argument>
@@ -159,7 +158,8 @@ damage = 1; //Damage-Wert
           <argument>
             <kind>1</kind>
             <string>///Skill1 + Skill2 Cooldown
-cd_skill_01 = 0;
+cd_skill_01=0;
+cd_punch=0;
 </string>
           </argument>
         </arguments>
@@ -206,7 +206,8 @@ if armor_player &lt; 0 {armor_player = 0}
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>//Scripts
+            <string>///Controlls
+//Scripts
 scr_get_input();
 
 //Bg animation
@@ -227,23 +228,14 @@ if key_jump  {
       physics_apply_impulse(x,y,0, jspd);
       }
 }
-//Stats
+//Stats bzw. death xD
 if hp_player &lt;= 0 {game_restart()}
 
 //Spell1
-if (right_arrow_key &amp;&amp; cd_skill_01 = 0) {
+if (mouse_click &amp;&amp; cd_skill_01=0) {
 instance_create(x,y,obj_spell_01);
 cd_skill_01 = 1;
-cd_skill_02 = 1;
-alarm[0]=30;
-with (obj_spell_01) image_angle = 180;
-}
-
-if (left_arrow_key &amp;&amp; cd_skill_01 = 0) {
-instance_create(x,y,obj_spell_01);
-cd_skill_01 = 1
-cd_skill_02 = 1;
-alarm[0]=30;
+alarm[0]=180;
 }
 //Punch
 if (punch_key &amp;&amp; cd_punch = 0)
@@ -271,6 +263,7 @@ if (punch_key &amp;&amp; cd_punch = 0)
         with obj_punch image_angle = 270;
         cd_punch = 1;
     }
+    alarm[0]=180;
 }
 /*
 //Ladder

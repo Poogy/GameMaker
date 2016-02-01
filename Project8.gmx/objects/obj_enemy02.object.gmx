@@ -34,7 +34,7 @@ dmg = 20;
 attack = true;
 spd = 0;
 max_xspeed = 4;
-dir = choose(1,-1)
+dir=0;
 </string>
           </argument>
         </arguments>
@@ -102,22 +102,23 @@ scr_bloodC();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_apply_force(x,y,dir*-spd,-20)
+            <string>physics_apply_force(x,y,-dir*spd,-20)
 //Gegner Movement
-if place_meeting(x+1,y,obj_wall){dir = 1};
-if place_meeting(x-1,y,obj_wall){dir = -1};
+if place_meeting(x+1,y,obj_wall){dir = -1};
+if place_meeting(x-1,y,obj_wall){dir = 1};
 //AI-System
 switch (state) {
     case e_state.idle:
+     dir=0;
      spd=0;
-     if (distance_to_object(obj_player) &lt; 96) state=e_state.chase;
+     if (distance_to_object(obj_player) &lt; 160) state=e_state.chase;
     break;
     
     
     case e_state.chase:
-    dir = sign(obj_player.x - x);
+    dir= sign(obj_player.x - x);
     spd= -dir*450;
-    if (distance_to_object(obj_player) &gt; 128) state=e_state.idle;
+    if (distance_to_object(obj_player) &gt; 256) state=e_state.idle;
     break;
 }
 //Damage System
