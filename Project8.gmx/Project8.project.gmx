@@ -21,6 +21,7 @@
       <sprite>sprites\spr_exp</sprite>
       <sprite>sprites\spr_player</sprite>
       <sprite>sprites\spr_player_sword</sprite>
+      <sprite>sprites\spr_mouse</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_enemy</sprite>
@@ -96,6 +97,7 @@
       <object>objects\cont_gui</object>
       <object>objects\obj_skillicon</object>
       <object>objects\obj_pause</object>
+      <object>objects\obj_mouse</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>

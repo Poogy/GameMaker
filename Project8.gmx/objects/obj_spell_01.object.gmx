@@ -96,11 +96,27 @@ part_particles_create(parsys,x,y,partype,1);
 if (mouse_check_button(mb_left) ){
    direction=point_direction(x,y,mouse_x,mouse_y);
    image_angle=direction;
-   physics_apply_force(x,y,lengthdir_x(800,direction),lengthdir_y(800,direction));
+   physics_apply_force(x,y,lengthdir_x(10000,direction),lengthdir_y(10000,direction));
 }
 </string>
           </argument>
         </arguments>
+      </action>
+    </event>
+    <event eventtype="4" ename="obj_enemy02">
+      <action>
+        <libid>1</libid>
+        <id>203</id>
+        <kind>0</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>1</exetype>
+        <functionname>action_kill_object</functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
       </action>
     </event>
     <event eventtype="4" ename="obj_enemy">
