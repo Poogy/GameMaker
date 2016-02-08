@@ -16,6 +16,7 @@
       <sprite>sprites\spr_light</sprite>
       <sprite>sprites\spr_drop</sprite>
       <sprite>sprites\spr_dropBack</sprite>
+      <sprite>sprites\spr_explosion</sprite>
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_exp</sprite>
