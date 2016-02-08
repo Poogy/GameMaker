@@ -34,6 +34,39 @@ if (instance_exists(obj_player)) {
           </argument>
         </arguments>
       </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Follow mouse
+var xTo,yTo;
+move_towards_point(mouse_x,mouse_y,0);
+xTo=obj_player.x + lengthdir_x(min(96,distance_to_point(mouse_x,mouse_y)),direction);
+yTo=obj_player.y + lengthdir_y(min(96,distance_to_point(mouse_x,mouse_y)),direction);
+
+x+=(xTo-x)/25;
+y+=(yTo-y)/25;
+
+view_xview= -(view_wview/2)+x;
+view_yview= -(view_hview/2)+y;
+view_xview=clamp(view_xview,0,room_width-view_wview);
+view_yview=clamp(view_yview,0,room_height-view_hview);
+</string>
+          </argument>
+        </arguments>
+      </action>
     </event>
   </events>
   <PhysicsObject>0</PhysicsObject>
