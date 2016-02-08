@@ -3,7 +3,7 @@
   <spriteName>&lt;undefined&gt;</spriteName>
   <solid>0</solid>
   <visible>-1</visible>
-  <depth>-1000</depth>
+  <depth>-999999</depth>
   <persistent>0</persistent>
   <parentName>&lt;undefined&gt;</parentName>
   <maskName>&lt;undefined&gt;</maskName>
@@ -25,36 +25,64 @@
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>/*
-Inventory Items
-0 = Sword
-1 = Red Potion
-2 = Blue Potion
-3 = Yellow Key
-*/
+            <string>///Item Names array
 
-globalvar showInv; //Display the inventory?
-showInv = true;
-globalvar maxItems; //total item slots
-maxItems = 24; 
 
-for (i = 0; i &lt; maxItems; i += 1)
-{
-    global.inventory[i] = -1;
-    button[i] = instance_create(0,0,obj_invbutton)
-    button[i].slot = i;
-}
+////////////////////////////////
+//----Array for item names----//
+////////////////////////////////
 
-globalvar mouseItem;
-mouseItem = -1;
-instance_create(0,0,obj_mouseitem);
+//--| Materials
 
+item_name[WOOD]              = "Wood";
+item_name[LEATHER]           = "Leather";
+item_name[ROCK]              = "Rock";
+
+
+
+//--| Food
+
+item_name[RAW_MEAT]          = "Raw meat";
+item_name[COOKED_MEAT]       = "Cooked meat";
+
+
+
+//--| Potions
+
+item_name[LIFE_POTION]       = "Life potion";
+item_name[DEFENSE_POTION]    = "Potion of defense";
+
+
+
+//--| Swords
+
+item_name[BROKEN_HERO_SWORD]     = "[c=65535]Broken hero sword[/c]";
+ item_name[SWORD_OF_RANDOMNESS]  = "[c=8388736]Sword of randomness[/c]";
+item_name[IRON_LONGSWORD]        = "Iron longsword";
+item_name[IRON_BROADSWORD]        = "Iron broadsword";
+item_name[SWORD_OF_FLAMES]       = "[c=4235519]Sword of flames[/c]";
+ 
+ 
+ 
+//--| Shields
+
+item_name[RED_IRON_SHIELD]       = "Red iron shield";
+item_name[BROWN_IRON_SHIELD]     = "Brown iron shield";
+item_name[GREEN_IRON_SHIELD]     = "Green iron shield";
+item_name[BLUE_IRON_SHIELD]      = "Blue iron shield";
+item_name[IRON_SHIELD]           = "Iron shield";
+
+item_name[GOLDEN_SHIELD]         = "[c=65535]Golden shield[/c]";
+
+
+
+//--| Valueables
+
+item_name[MONEY_BAG_SMALL]      = "Small coin bag";
 </string>
           </argument>
         </arguments>
       </action>
-    </event>
-    <event eventtype="8" enumb="0">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -71,27 +99,1388 @@ instance_create(0,0,obj_mouseitem);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>if (showInv)
+            <string>///Item Sprites array
+
+
+//////////////////////////////////
+//----Array for item sprites----//
+//////////////////////////////////
+
+//--| Materials
+
+sprite[WOOD]              = spr_wood;
+sprite[LEATHER]           = spr_leather;
+sprite[ROCK]              = spr_rock;
+
+
+
+//--| Food
+
+sprite[RAW_MEAT]          = spr_raw_meat;
+sprite[COOKED_MEAT]       = spr_cooked_meat;
+
+
+
+//--| Potions
+
+sprite[LIFE_POTION]       = spr_life_potion;
+sprite[DEFENSE_POTION]    = spr_defense_potion;
+
+
+
+//--| Swords
+
+sprite[BROKEN_HERO_SWORD]       = spr_broken_hero_sword;
+ sprite[SWORD_OF_RANDOMNESS]    = spr_sword_of_randomness;
+sprite[IRON_LONGSWORD]          = spr_iron_longsword;
+sprite[IRON_BROADSWORD]         = spr_iron_broadsword;
+sprite[SWORD_OF_FLAMES]         = spr_sword_of_flames;
+ 
+ 
+ 
+//--| Shields
+
+sprite[RED_IRON_SHIELD]       = spr_red_iron_shield;
+sprite[BROWN_IRON_SHIELD]     = spr_brown_iron_shield;
+sprite[GREEN_IRON_SHIELD]     = spr_green_iron_shield;
+sprite[BLUE_IRON_SHIELD]      = spr_blue_iron_shield;
+sprite[IRON_SHIELD]           = spr_iron_shield;
+
+sprite[GOLDEN_SHIELD]         = spr_golden_shield;
+
+
+//--| Valueables
+
+sprite[MONEY_BAG_SMALL]      = spr_money_bag_small;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Player sprites array
+
+
+////////////////////////////////////
+//----Array for player sprites----//
+////////////////////////////////////
+
+//--| Materials
+
+player_sprite[WOOD]              = spr_player_right_idle;
+player_sprite[LEATHER]           = spr_player_right_idle;
+player_sprite[ROCK]              = spr_player_right_idle;
+
+
+
+//--| Food
+
+player_sprite[RAW_MEAT]          = spr_player_right_idle;
+player_sprite[COOKED_MEAT]       = spr_player_right_idle;
+
+
+
+//--| Potions
+
+player_sprite[LIFE_POTION]       = spr_player_right_idle;
+
+
+
+//--| Swords
+
+player_sprite_up[BROKEN_HERO_SWORD]       = spr_player_up;
+player_sprite_up_idle[BROKEN_HERO_SWORD]       = spr_player_right_idle;
+player_sprite_left[BROKEN_HERO_SWORD]       = spr_player_left;
+player_sprite_left_idle[BROKEN_HERO_SWORD]       = spr_player_left_idle;
+player_sprite_down[BROKEN_HERO_SWORD]       = spr_player_down;
+player_sprite_down_idle[BROKEN_HERO_SWORD]       = spr_player_right_idle;
+player_sprite_right[BROKEN_HERO_SWORD]       = spr_player_right;
+player_sprite_right_idle[BROKEN_HERO_SWORD]       = spr_player_right_idle;
+
+ player_sprite_up[SWORD_OF_RANDOMNESS]       = spr_player_up;
+ player_sprite_up_idle[SWORD_OF_RANDOMNESS]       = spr_player_right_idle;
+ player_sprite_left[SWORD_OF_RANDOMNESS]       = spr_player_left;
+ player_sprite_left_idle[SWORD_OF_RANDOMNESS]       = spr_player_left_idle;
+ player_sprite_down[SWORD_OF_RANDOMNESS]       = spr_player_down;
+ player_sprite_down_idle[SWORD_OF_RANDOMNESS]       = spr_player_right_idle;
+ player_sprite_right[SWORD_OF_RANDOMNESS]       = spr_player_right;
+ player_sprite_right_idle[SWORD_OF_RANDOMNESS]       = spr_player_right_idle;
+ 
+player_sprite_up[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_up_idle[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_left[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_left_idle[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_down[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_down_idle[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_right[IRON_LONGSWORD]       = spr_player_right_idle;
+player_sprite_right_idle[IRON_LONGSWORD]       = spr_player_right_idle;
+
+player_sprite_up[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_up_idle[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_left[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_left_idle[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_down[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_down_idle[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_right[IRON_BROADSWORD]       = spr_player_right_idle;
+player_sprite_right_idle[IRON_BROADSWORD]       = spr_player_right_idle;
+
+player_sprite_up[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_up_idle[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_left[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_left_idle[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_down[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_down_idle[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_right[SWORD_OF_FLAMES]       = spr_player_right_idle;
+player_sprite_right_idle[SWORD_OF_FLAMES]       = spr_player_right_idle;
+ 
+ 
+ 
+//--| Shields
+
+player_sprite[RED_IRON_SHIELD]       = spr_player_right_idle;
+player_sprite[BROWN_IRON_SHIELD]     = spr_player_right_idle;
+player_sprite[GREEN_IRON_SHIELD]     = spr_player_right_idle;
+player_sprite[BLUE_IRON_SHIELD]      = spr_player_right_idle;
+player_sprite[IRON_SHIELD]           = spr_player_right_idle;
+
+player_sprite[GOLDEN_SHIELD]         = spr_player_right_idle;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item Objects array
+
+
+//////////////////////////////////
+//----Array for item objects----//
+//////////////////////////////////
+
+//--| Materials
+
+object[WOOD]              = obj_item_wood;
+object[LEATHER]           = obj_item_leather;
+object[ROCK]              = obj_item_rock;
+
+
+
+//--| Food
+
+object[RAW_MEAT]          = obj_item_raw_meat;
+object[COOKED_MEAT]       = obj_item_cooked_meat;
+
+
+//--| Potions
+
+object[LIFE_POTION]       = obj_life_potion;
+object[DEFENSE_POTION]    = obj_defense_potion;
+
+
+
+//--| Swords
+
+object[BROKEN_HERO_SWORD]       = obj_broken_hero_sword;
+ object[SWORD_OF_RANDOMNESS]    = obj_sword_of_randomness;
+object[IRON_LONGSWORD]          = obj_iron_longsword;
+object[IRON_BROADSWORD]         = obj_iron_broadsword;
+object[SWORD_OF_FLAMES]         = obj_sword_of_flames;
+ 
+ 
+ 
+//--| Shields
+
+object[RED_IRON_SHIELD]       = obj_red_iron_shield;
+object[BROWN_IRON_SHIELD]     = obj_brown_iron_shield;
+object[GREEN_IRON_SHIELD]     = obj_green_iron_shield;
+object[BLUE_IRON_SHIELD]      = obj_blue_iron_shield;
+object[IRON_SHIELD]           = obj_iron_shield;
+
+object[GOLDEN_SHIELD]         = obj_golden_shield;
+
+
+//--| Valueables
+
+object[MONEY_BAG_SMALL]      = obj_money_bag_small;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item stackable array
+
+
+/////////////////////////////////////
+//----Array for item stackables----//
+/////////////////////////////////////
+
+//--| Materials
+
+stackable[WOOD]              = true;
+stackable[LEATHER]           = true;
+stackable[ROCK]              = true;
+
+
+
+//--| Food
+
+stackable[RAW_MEAT]          = true;
+stackable[COOKED_MEAT]       = true;
+
+
+//--| Potions
+
+stackable[LIFE_POTION]       = true;
+stackable[DEFENSE_POTION]    = true;
+
+
+
+//--| Swords
+
+stackable[BROKEN_HERO_SWORD]     = false;
+ stackable[SWORD_OF_RANDOMNESS]   = false;
+stackable[IRON_LONGSWORD]        = false;
+stackable[IRON_BROADSWORD]       = false;
+stackable[SWORD_OF_FLAMES]       = false;
+ 
+ 
+ 
+//--| Shields
+
+stackable[RED_IRON_SHIELD]       = false;
+stackable[BROWN_IRON_SHIELD]     = false;
+stackable[GREEN_IRON_SHIELD]     = false;
+stackable[BLUE_IRON_SHIELD]      = false;
+stackable[IRON_SHIELD]           = false;
+
+stackable[GOLDEN_SHIELD]         = false;
+
+
+//--| Valueables
+
+stackable[MONEY_BAG_SMALL]      = false;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item Scripts array
+
+
+//////////////////////////////////
+//----Array for item scripts----//
+//////////////////////////////////
+
+//--| Materials
+
+script[WOOD]              = noone;
+script[LEATHER]           = noone;
+script[ROCK]              = noone;
+
+
+
+//--| Food
+
+script[RAW_MEAT]          = scr_eat_raw_meat;
+script[COOKED_MEAT]       = scr_eat_cooked_meat;
+
+
+//--| Potions
+
+script[LIFE_POTION]       = scr_drink_life_potion;
+script[DEFENSE_POTION]    = scr_drink_defense_potion;
+
+
+
+//--| Swords
+script[BROKEN_HERO_SWORD]       = noone;
+ script[SWORD_OF_RANDOMNESS]    = noone;
+script[IRON_LONGSWORD]          = noone;
+script[IRON_BROADSWORD]         = noone;
+script[SWORD_OF_FLAMES]         = noone;
+ 
+ 
+ 
+//--| Shields
+
+script[RED_IRON_SHIELD]       = noone;
+script[BROWN_IRON_SHIELD]     = noone;
+script[GREEN_IRON_SHIELD]     = noone;
+script[BLUE_IRON_SHIELD]      = noone;
+script[IRON_SHIELD]           = noone;
+
+script[GOLDEN_SHIELD]         = noone;
+
+
+//--| Valueables
+
+script[MONEY_BAG_SMALL]      = scr_open_small_money_bag;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item SLOT sounds array
+
+
+/////////////////////////////////
+//----Array for item sounds----//
+/////////////////////////////////
+
+
+
+//--| Materials
+
+slot_sound[WOOD]              = snd_item_ground;
+slot_sound[LEATHER]           = snd_item_ground;
+slot_sound[ROCK]              = snd_item_ground;
+
+
+
+//--| Food
+
+slot_sound[RAW_MEAT]          = snd_grabbing_meat;
+slot_sound[COOKED_MEAT]       = snd_grabbing_meat;
+
+
+//--| Potions
+
+slot_sound[LIFE_POTION]       = snd_potion_pickup;
+slot_sound[DEFENSE_POTION]    = snd_potion_pickup;
+
+
+
+//--| Swords
+slot_sound[BROKEN_HERO_SWORD]       = snd_sword_equip;
+ slot_sound[SWORD_OF_RANDOMNESS]    = snd_sword_equip;
+slot_sound[IRON_LONGSWORD]          = snd_sword_equip;
+slot_sound[IRON_BROADSWORD]         = snd_sword_equip;
+slot_sound[SWORD_OF_FLAMES]         = snd_sword_equip;
+ 
+ 
+ 
+//--| Shields
+
+slot_sound[RED_IRON_SHIELD]       = snd_item_ground;
+slot_sound[BROWN_IRON_SHIELD]     = snd_item_ground;
+slot_sound[GREEN_IRON_SHIELD]     = snd_item_ground;
+slot_sound[BLUE_IRON_SHIELD]      = snd_item_ground;
+slot_sound[IRON_SHIELD]           = snd_item_ground;
+
+slot_sound[GOLDEN_SHIELD]         = snd_item_ground;
+
+
+//--| Valueables
+
+slot_sound[MONEY_BAG_SMALL]      = snd_sell_item;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item DROP sounds array
+
+
+/////////////////////////////////
+//----Array for item sounds----//
+/////////////////////////////////
+
+
+
+//--| Materials
+
+drop_sound[WOOD]              = snd_item_ground;
+drop_sound[LEATHER]           = snd_item_ground;
+drop_sound[ROCK]              = snd_item_ground;
+
+
+
+//--| Food
+
+drop_sound[RAW_MEAT]          = snd_grabbing_meat;
+drop_sound[COOKED_MEAT]       = snd_grabbing_meat;
+
+
+//--| Potions
+
+drop_sound[LIFE_POTION]       = snd_item_ground;
+drop_sound[DEFENSE_POTION]    = snd_item_ground;
+
+
+
+//--| Swords
+drop_sound[BROKEN_HERO_SWORD]       = snd_item_ground;
+ drop_sound[SWORD_OF_RANDOMNESS]    = snd_item_ground;
+drop_sound[IRON_LONGSWORD]          = snd_item_ground;
+drop_sound[IRON_BROADSWORD]         = snd_item_ground;
+drop_sound[SWORD_OF_FLAMES]         = snd_item_ground;
+ 
+ 
+ 
+//--| Shields
+
+drop_sound[RED_IRON_SHIELD]       = snd_item_ground;
+drop_sound[BROWN_IRON_SHIELD]     = snd_item_ground;
+drop_sound[GREEN_IRON_SHIELD]     = snd_item_ground;
+drop_sound[BLUE_IRON_SHIELD]      = snd_item_ground;
+drop_sound[IRON_SHIELD]           = snd_item_ground;
+
+drop_sound[GOLDEN_SHIELD]         = snd_item_ground;
+
+
+//--| Valueables
+
+drop_sound[MONEY_BAG_SMALL]      = snd_item_ground;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item Info texts
+
+
+/////////////////////////////////////
+//----Array for item info texts----//
+/////////////////////////////////////
+
+
+//----Pop-Up-Menu
+//--|  COLORS / CODES
+//--|  Material     =  [c=4235519]Material[/c]          = c_orange
+//--|  Damage       =  [c=128]Damage: 1[/c]             = c_maroon
+//--|  Knockback    =  [c=8388608]Knockback: 1[/c]      = c_navy
+//--|  Value        =  [c=12632256]Value: 1 Gold[/c]    = c_ltgray
+//--|  Defense      =  [c=8421376]#Defense: 1[/c]       = c_teal
+
+
+
+
+
+
+//--| Materials
+
+info_text[WOOD]              = "Just wood.#[c=4235519]Material[/c]";
+info_text[LEATHER]           = "Some leather from some animal..#[c=12632256]Value: 1[/c]#[c=4235519]Material[/c]";
+info_text[ROCK]              = "Well.. a rock.#[c=4235519]Material[/c]";
+
+
+
+//--| Food
+
+info_text[RAW_MEAT]          = "Tastes better when cooked!#Hungerpoints: 2#[c=12632256]Value: 1[/c]#[c=4235519]Material[/c]";
+info_text[COOKED_MEAT]       = "Looks tasty.#Hungerpoints: 8#[c=12632256]Value: 2[/c]#[c=4235519]Material[/c]";
+
+
+//--| Potions
+
+info_text[LIFE_POTION]       = "Refills 5 HP.#[c=12632256]Value: 5[/c]#[c=4235519]Material[/c]";
+info_text[DEFENSE_POTION]    = "Permanetly increases defense by 5.#[c=12632256]Value: 30[/c]#[c=4235519]Material[/c]";
+
+
+
+//--| Swords
+
+info_text[BROKEN_HERO_SWORD]        = "True power lies within this light weight piece of metal..#[c=128]Damage: 3[/c]#[c=8388608]Knockback: 3[/c]#[c=12632256]Value: 3[/c]#[c=4235519]Material[/c]";
+ info_text[SWORD_OF_RANDOMNESS]     = "This sword is incredibly random! Be aware..#[c=128]Damage: 9[/c]#[c=8388608]Knockback: 4[/c]#[c=12632256]Value: 120 Gold[/c]";
+info_text[IRON_LONGSWORD]           = "An ordinary longsword.#[c=128]Damage: 5[/c]#[c=8388608]Knockback: 2[/c]#[c=12632256]Value: 5[/c]";
+info_text[IRON_BROADSWORD]          = "A heavy iron broadsword.#[c=128]Damage: 4[/c]#[c=8388608]Knockback: 3[/c]#[c=12632256]Value: 5[/c]";
+info_text[SWORD_OF_FLAMES]          = "It's hot, burning metal will slice through your foes like butter!#[c=128]Damage: 12[/c]#[c=8388608]Knockback: 6[/c]#[c=12632256]Value: 120[/c]";
+
+ 
+ 
+//--| Shields
+
+info_text[RED_IRON_SHIELD]       = "A red painted iron shield.[c=8421376]#Defense: 3[/c]#[c=12632256]Value: 7 Gold[/c]";
+info_text[BROWN_IRON_SHIELD]     = "Looks like $H1T. Get it?..[c=8421376]#Defense: 3[/c]#[c=12632256]Value: 6 Gold[/c]";
+info_text[GREEN_IRON_SHIELD]     = "An iron shield. Green painted.[c=8421376]#Defense: 3[/c]#[c=12632256]Value: 7 Gold[/c]";
+info_text[BLUE_IRON_SHIELD]      = "A blue painted iron shield..[c=8421376]#Defense: 3[/c]#[c=12632256]Value: 7 Gold[/c]";
+info_text[IRON_SHIELD]           = "An iron shield. Nothing special here.[c=8421376]#Defense: 3[/c]#[c=12632256]Value: 5 Gold[/c]";
+
+info_text[GOLDEN_SHIELD]         = "Looks pretty weak actually..It's made out of gold btw.[c=8421376]#Defense: 2[/c]#[c=12632256]Value: 124 Gold[/c]";
+
+
+//--| Valueables
+
+info_text[MONEY_BAG_SMALL]      = "A small bag filled with coins. Right-click to open#[c=12632256]Value: 24 Gold[/c]";
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item values array
+
+
+//////////////////////////////////
+//----Array for item values----///
+//////////////////////////////////
+
+//--| Materials
+
+value[WOOD]              = 0;
+value[LEATHER]           = 1;
+value[ROCK]              = 0;
+
+
+
+//--| Food
+
+value[RAW_MEAT]          = 1;
+value[COOKED_MEAT]       = 2;
+
+
+//--| Potions
+
+value[LIFE_POTION]       = 5;
+value[DEFENSE_POTION]    = 30;
+
+
+
+//--| Swords
+
+value[BROKEN_HERO_SWORD]       = 3;
+ value[SWORD_OF_RANDOMNESS]    = 120;
+value[IRON_LONGSWORD]          = 5;
+value[IRON_BROADSWORD]         = 5;
+value[SWORD_OF_FLAMES]         = 120;
+ 
+ 
+ 
+//--| Shields
+
+value[RED_IRON_SHIELD]       = 7;
+value[BROWN_IRON_SHIELD]     = 6;
+value[GREEN_IRON_SHIELD]     = 7;
+value[BLUE_IRON_SHIELD]      = 7;
+value[IRON_SHIELD]           = 5;
+
+value[GOLDEN_SHIELD]         = 124;
+
+
+//--| Valueables
+
+value[MONEY_BAG_SMALL]      = 25;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item defense array
+
+
+//////////////////////////////////
+//----Array for item defense----//
+//////////////////////////////////
+
+
+//--| Swords
+
+shield_defense[BROKEN_HERO_SWORD]     = 0;
+ shield_defense[SWORD_OF_RANDOMNESS]   = 0;
+shield_defense[IRON_LONGSWORD]        = 0;
+shield_defense[IRON_BROADSWORD]       = 0;
+shield_defense[SWORD_OF_FLAMES]       = 0;
+
+
+
+//--| Materials
+
+shield_defense[WOOD]              = 0;
+shield_defense[LEATHER]           = 0;
+shield_defense[ROCK]              = 0;
+
+
+
+//--| Food
+
+shield_defense[RAW_MEAT]          = 0;
+shield_defense[COOKED_MEAT]       = 0;
+
+
+//--| Potions
+
+shield_defense[LIFE_POTION]            = 0;
+shield_defense[DEFENSE_POTION]         = 0;
+
+
+ 
+//--| Shields
+
+shield_defense[RED_IRON_SHIELD]       = 3;
+shield_defense[BROWN_IRON_SHIELD]     = 3;
+shield_defense[GREEN_IRON_SHIELD]     = 3;
+shield_defense[BLUE_IRON_SHIELD]      = 3;
+shield_defense[IRON_SHIELD]           = 3;
+
+shield_defense[GOLDEN_SHIELD]         = 2;
+
+
+//--| Valueables
+
+shield_defense[MONEY_BAG_SMALL]      = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item damage array
+
+
+/////////////////////////////////
+//----Array for item damage----//
+/////////////////////////////////
+
+
+//--| Swords
+
+weapon_damage[BROKEN_HERO_SWORD]     = 3;
+ weapon_damage[SWORD_OF_RANDOMNESS]   = 9;
+weapon_damage[IRON_LONGSWORD]        = 5;
+weapon_damage[IRON_BROADSWORD]       = 4;
+weapon_damage[SWORD_OF_FLAMES]       = 12;
+
+
+
+//--| Materials
+
+weapon_damage[WOOD]              = 0;
+weapon_damage[LEATHER]           = 0;
+weapon_damage[ROCK]              = 0;
+
+
+
+//--| Food
+
+weapon_damage[RAW_MEAT]          = 0;
+weapon_damage[COOKED_MEAT]       = 0;
+
+
+//--| Potions
+
+weapon_damage[LIFE_POTION]       = 0;
+weapon_damage[DEFENSE_POTION]    = 0;
+
+
+ 
+//--| Shields
+
+weapon_damage[RED_IRON_SHIELD]       = 0;
+weapon_damage[BROWN_IRON_SHIELD]     = 0;
+weapon_damage[GREEN_IRON_SHIELD]     = 0;
+weapon_damage[BLUE_IRON_SHIELD]      = 0;
+weapon_damage[IRON_SHIELD]           = 0;
+
+weapon_damage[GOLDEN_SHIELD]         = 0;
+
+
+//--| Valueables
+
+weapon_damage[MONEY_BAG_SMALL]      = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Item knockback array
+
+
+////////////////////////////////////
+//----Array for item knockback----//
+////////////////////////////////////
+
+
+//--| Swords
+
+weapons_knockback[BROKEN_HERO_SWORD]     = 3;
+ weapons_knockback[SWORD_OF_RANDOMNESS]   = 4;
+weapons_knockback[IRON_LONGSWORD]        = 2;
+weapons_knockback[IRON_BROADSWORD]       = 3;
+weapons_knockback[SWORD_OF_FLAMES]       = 6;
+
+
+
+//--| Materials
+
+weapons_knockback[WOOD]              = 0;
+weapons_knockback[LEATHER]           = 0;
+weapons_knockback[ROCK]              = 0;
+
+
+
+//--| Food
+
+weapons_knockback[RAW_MEAT]          = 0;
+weapons_knockback[COOKED_MEAT]       = 0;
+
+
+//--| Potions
+
+weapons_knockback[LIFE_POTION]       = 0;
+weapons_knockback[DEFENSE_POTION]    = 0;
+
+
+ 
+//--| Shields
+
+weapons_knockback[RED_IRON_SHIELD]       = 0;
+weapons_knockback[BROWN_IRON_SHIELD]     = 0;
+weapons_knockback[GREEN_IRON_SHIELD]     = 0;
+weapons_knockback[BLUE_IRON_SHIELD]      = 0;
+weapons_knockback[IRON_SHIELD]           = 0;
+
+weapons_knockback[GOLDEN_SHIELD]         = 0;
+
+
+//--| Valueables
+
+weapons_knockback[MONEY_BAG_SMALL]      = 0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Define items and recipes
+
+
+//----Variables----
+
+
+c_list = false;     //Wether crafting UI is visible or not
+
+
+globalvar recipe_list;
+globalvar recipe;
+globalvar ingredients;
+
+globalvar armor;
+
+globalvar name;
+globalvar sprite;
+globalvar object;
+globalvar script;
+globalvar info_text;
+globalvar show_info_box;
+globalvar player_sprite;
+globalvar weapon_damage;
+globalvar shield_defense;
+globalvar weapons_knockback;
+globalvar item_armor;
+
+
+//COINS
+globalvar coins;
+coins = 0;
+
+
+//----SWORDS----
+sword[BROKEN_HERO_SWORD, 0]   = 3;        //Damage
+sword[BROKEN_HERO_SWORD, 1]   = 3;        //Knockback
+sword[BROKEN_HERO_SWORD, 2]   = 3;        //Value
+sword[BROKEN_HERO_SWORD, 3]   = noone;    //Special ability (Power?)
+
+sword[SWORD_OF_RANDOMNESS, 0]   = 9;        //Damage
+sword[SWORD_OF_RANDOMNESS, 1]   = 4;        //Knockback
+sword[SWORD_OF_RANDOMNESS, 2]   = 120;      //Value
+sword[SWORD_OF_RANDOMNESS, 3]   = noone;    //Special ability (Power?)
+
+sword[IRON_LONGSWORD, 0]   = 5;        //Damage
+sword[IRON_LONGSWORD, 1]   = 2;        //Knockback
+sword[IRON_LONGSWORD, 2]   = 5;      //Value
+sword[IRON_LONGSWORD, 3]   = noone;    //Special ability (Power?)
+
+sword[IRON_BROADSWORD, 0]   = 4;        //Damage
+sword[IRON_BROADSWORD, 1]   = 3;        //Knockback
+sword[IRON_BROADSWORD, 2]   = 5;      //Value
+sword[IRON_BROADSWORD, 3]   = noone;    //Special ability (Power?)
+
+sword[SWORD_OF_FLAMES, 0]   = 12;        //Damage
+sword[SWORD_OF_FLAMES, 1]   = 6;        //Knockback
+sword[SWORD_OF_FLAMES, 2]   = 120;      //Value
+sword[SWORD_OF_FLAMES, 3]   = noone;    //Special ability (Power?)
+
+
+
+
+//----SHIELDS----
+shield[RED_IRON_SHIELD, 0]      = 3;        //Defense
+shield[RED_IRON_SHIELD, 1]      = 7;        //Value
+shield[RED_IRON_SHIELD, 2]      = noone;    //Special ability (Power?)
+
+shield[BROWN_IRON_SHIELD, 0]    = 3;        //Defense
+shield[BROWN_IRON_SHIELD, 1]    = 6;        //Value
+shield[BROWN_IRON_SHIELD, 2]    = noone;    //Special ability (Power?)
+
+shield[GREEN_IRON_SHIELD, 0]    = 3;        //Defense
+shield[GREEN_IRON_SHIELD, 1]    = 7;        //Value
+shield[GREEN_IRON_SHIELD, 2]    = noone;    //Special ability (Power?)
+
+shield[BLUE_IRON_SHIELD, 0]     = 3;        //Defense
+shield[BLUE_IRON_SHIELD, 1]     = 7;        //Value
+shield[BLUE_IRON_SHIELD, 2]     = noone;    //Special ability (Power?)
+
+shield[IRON_SHIELD, 0]          = 3;        //Defense
+shield[IRON_SHIELD, 1]          = 5;        //Value
+shield[IRON_SHIELD, 2]          = noone;    //Special ability (Power?)
+
+shield[GOLDEN_SHIELD, 0]          = 2;        //Defense
+shield[GOLDEN_SHIELD, 1]          = 124;      //Value
+shield[GOLDEN_SHIELD, 2]          = noone;    //Special ability (Power?)
+
+
+
+
+//----Recipes----
+recipe_list[0] = 0;
+
+
+recipe[0]             = "Axe"
+recipe[1]             = "Cooked Meat"
+recipe[2]             = "Leather Boots"
+
+ingredients[0,0]        = "Wood (1)"
+ingredients[0,1]        = "Rock (1)"
+
+ingredients[1,0]        = "Raw Meat (1)"
+ingredients[1,1]        = "Fireplace"
+
+ingredients[2,0]        = "Leather (4)"
+ingredients[2,1]        = "Workbench"
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Initialize Inventory
+
+
+//----Variables----
+slot_number = 11;
+inventory_width = 11;
+
+
+backpack_slot_number = 6;
+backpack_slot_width = 1;
+backpack_slot_height = 6;
+
+
+globalvar mouse_slot;
+globalvar mouse_slot_n;
+globalvar weapon_slot;
+globalvar shield_slot;
+
+mouse_slot = noone;
+mouse_slot_n = 0;
+
+backpack_slot = noone;
+backpack_slot_n = 0;
+
+x_off = view_current + 8;
+y_off = view_current + 8;
+
+backpackx_off = view_xview[0] + 8;
+backpacky_off = view_yview[0] + 168;
+
+
+//----For-Loop emptying all slots----
+for(var i = 0; i &lt; slot_number; i++)
 {
-    var x1,x2,y1,y2;
-    x1 = view_xview[0];
-    x2 = x1 + view_wview[0];
-    y1 = view_yview[0];
-    y2 = y1 + 64;
+    slot[i] = noone;
+    slot_n[i] = 0;
+    weapon_slot = noone;
+    shield_slot = noone;
+    backpack_slot[i] = noone;
+    backpack_slot_n[i] = 0;
+}
 
-    draw_set_color(c_black);
-    draw_set_alpha(0.8);
-    draw_rectangle(x1,y1,x2,y2,0);
-    draw_set_alpha(1);
-    
-    for (i = 0; i &lt; maxItems; i += 1)
+//----Adding items to slots----
+
+slot[0]   = COOKED_MEAT;
+slot_n[0] = 2;
+slot[9]   = BROKEN_HERO_SWORD;
+slot_n[9] = 1;
+slot[10]   = IRON_SHIELD;
+slot_n[10] = 1;
+
+weapon_slot = slot[9];
+shield_slot = slot[10];
+backpack_slot[0] = LIFE_POTION;
+backpack_slot_n[0] = 1;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="3" enumb="0">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Getting x_off and y_off for view
+x_off = view_xview[0] + 8;
+y_off = view_yview[0] + 8;
+
+backpackx_off = view_xview[0] + 8;
+backpacky_off = view_yview[0] + 168;
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///slot[9] is weapon slot-slot[10] is shield slot
+weapon_slot = slot[9];
+shield_slot = slot[10];
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="56">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Slot releasing
+
+
+//----Variables----
+var xx = (mouse_x - x_off) div 32;          //Slot size
+var yy = (mouse_y - y_off) div 32;          //Slot sze
+
+var slot_clicked = xx + yy;                 //var slot_clicked = xx + (yy * 4);
+
+if (mouse_x &gt; x_off) and (mouse_x &lt; x_off + inventory_width * 32) and (mouse_y &gt; y_off) and (mouse_y &lt; y_off + 32)  //(mouse_y &lt; y_off + inventory_width/4 * 32)
+{
+    //If slot empty or containing same item -&gt; put it in the slot
+    if(scr_add_item(slot_clicked, mouse_slot, mouse_slot_n))
     {
-        var ix = x1+24+(i * 40);
-        var iy = y2-24;
+        //Play sound when placing in slot
+        if(mouse_slot != noone)
+        {
+            if !sound_isplaying(slot_sound[mouse_slot])
+            {
+                sound_play(slot_sound[mouse_slot]);
+            }
+        }
+        
+        mouse_slot = noone;
+        mouse_slot_n = 0;
+    }
+}
+else            //Putting elswhere
+{
+    //If over backpack slots
+if (mouse_x &gt; backpackx_off) and (mouse_x &lt; backpackx_off + backpack_slot_width * 32) and (mouse_y &gt; backpacky_off) and (mouse_y &lt; backpacky_off + backpack_slot_height * 32)
+{
 
-        draw_sprite(spr_border,0,ix,iy)
-        button[i].x = ix;
-        button[i].y = iy;
+    var xx = (mouse_x - backpackx_off) div 32;          //Slot size
+    var yy = (mouse_y - backpacky_off) div 32;          //Slot sze
+
+    var slot_clicked = xx + yy;
+
+    //If slot empty or containing same item -&gt; put it in the slot
+    if(scr_add_backpack(slot_clicked, mouse_slot, mouse_slot_n))
+    {
+        //Play sound when placing in slot
+        if(mouse_slot != noone)
+        {
+            if !sound_isplaying(slot_sound[mouse_slot])
+            {
+                sound_play(slot_sound[mouse_slot]);
+            }
+        }
+        
+        mouse_slot = noone;
+        mouse_slot_n = 0;
+    }
+}
+    else                                                                    // SELLING
+    {
+    //If putting object on salesmen
+    if(instance_position(mouse_x, mouse_y, obj_npc_salesmen_parent))
+    {
+        //If there is something beeing dragged by mouse
+        if(mouse_slot != noone)
+        {
+            if(scr_sell_item(mouse_slot, mouse_slot_n) == true)
+            {
+                //Play sound when 'selling'
+                if(mouse_slot != noone)
+                {
+                if !sound_isplaying(snd_sell_item)
+                    {
+                        sound_play(snd_sell_item);
+                    }
+                }
+                mouse_slot = noone;
+                mouse_slot_n = 0;
+            }
+        else
+        {   
+            //If the script returned false -&gt; meaning that he couldn't sell for whatever reason
+            //Do nothing
+        }
+    }
+    else
+    {
+        //If there is nothing on the mouse slot beeing dragged onto the seller
+        //Do nothing
+    }
+        
+    }
+    else
+    {
+        //Put on ground
+        if(place_free(mouse_x, mouse_y))    
+        {
+            //Play sound when placing on ground
+            if(mouse_slot != noone)
+            {
+                if !sound_isplaying(drop_sound[mouse_slot])
+                {
+                    sound_play(drop_sound[mouse_slot]);
+                }
+            }
+        
+            for(i = 0; i &lt; mouse_slot_n; i++)       //Putting objects on the ground if place is free
+            {
+            instance_create(mouse_x + random_range(-mouse_slot_n/2,mouse_slot_n/2), mouse_y + random_range(-mouse_slot_n/2,mouse_slot_n/2), object[mouse_slot]);
+            }
+            mouse_slot = noone;
+            mouse_slot_n = 0;
+        }
+    }
+}
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="55">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Remove from stack and place in empty slot
+
+
+if(mouse_slot != noone) and (mouse_slot_n &gt;1)
+    {
+        if(stackable[mouse_slot] = true)
+        {
+            scr_item_remove_from_stack_inv(mouse_slot);
+        }
+    }
+    else if(mouse_slot == noone) and (mouse_x &gt; x_off) and (mouse_x &lt; x_off + inventory_width * 32) and (mouse_y &gt; y_off) and (mouse_y &lt; y_off + 32)
+    {
+    
+        var xx = (mouse_x - x_off) div 32;      //Slot size
+        var yy = (mouse_y - y_off) div 32;     //Slot size
+
+        var slot_clicked = xx + yy;
+    
+        scr_grab_one_item(slot_clicked);
+    }
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="6" enumb="54">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Clicking on slot and running script attached to object
+
+
+//----
+if(mouse_slot == noone) and (mouse_x &gt; x_off) and (mouse_x &lt; x_off + inventory_width * 32) and (mouse_y &gt; y_off) and (mouse_y &lt; y_off + 32)
+{
+    var xx = (mouse_x - x_off) div 32;  //Slot size
+    var yy = (mouse_y - y_off) div 32;          //Slot sze
+
+    var slot_clicked = xx + yy;  //xx;
+    
+    //if slot_clicked is not empty
+    if(slot[slot_clicked] != noone)
+    {
+        //If item in slot has a script attached
+        if(script[slot[slot_clicked]] != noone)
+        {
+            //Play slot_sound
+            if !sound_isplaying(slot_sound[slot[slot_clicked]])
+            {
+                sound_play(slot_sound[slot[slot_clicked]]);
+            }
+            script_execute(script[slot[slot_clicked]], slot_clicked);
+
+            
+        }
+        else
+        {
+            //Play 'abort'_sound when right_clicking
+            if !sound_isplaying(snd_item_slot)
+            {
+                sound_play(snd_item_slot);
+            }
+        }
     }
 }
 </string>
@@ -99,7 +1488,7 @@ instance_create(0,0,obj_mouseitem);
         </arguments>
       </action>
     </event>
-    <event eventtype="9" enumb="80">
+    <event eventtype="6" enumb="53">
       <action>
         <libid>1</libid>
         <id>603</id>
@@ -116,7 +1505,362 @@ instance_create(0,0,obj_mouseitem);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>scr_itempickup(irandom(3));
+            <string>///Clicking on slot and grab item
+
+
+//If mouse is over the inventory region
+if(mouse_slot == noone) and (mouse_x &gt; x_off) and (mouse_x &lt; x_off + inventory_width * 32) and (mouse_y &gt; y_off) and (mouse_y &lt; y_off + 32) //(mouse_y &lt; y_off +inventory_width/4 * 32)
+{
+    
+    var xx = (mouse_x - x_off) div 32;      //Slot size
+    var yy = (mouse_y - y_off) div 32;     //Slot size
+
+    var slot_clicked = xx + yy;
+    
+    //If pressing shift
+    if(keyboard_check(vk_shift))
+    {
+        if(obj_player.moving = false)
+        {
+            //Put item stack into backpack
+            if(scr_move_to_backpack_slot(slot[slot_clicked], slot[slot_clicked], slot_n[slot_clicked]) == true &amp;&amp; slot[slot_clicked] != noone)
+            {
+                if(slot_sound[slot[slot_clicked]] &gt; 0)
+                {
+                    sound_play(slot_sound[slot[slot_clicked]]);
+                }
+                slot[slot_clicked] = noone;
+                slot_n[slot_clicked] = 0;
+            }
+        }
+        else
+        {
+            mouse_slot = slot[slot_clicked];
+            mouse_slot_n = slot_n[slot_clicked];
+            slot[slot_clicked] = noone;
+            slot_n[slot_clicked] = 0;
+        }
+        
+    }
+    else
+    {
+        mouse_slot = slot[slot_clicked];
+        mouse_slot_n = slot_n[slot_clicked];
+        slot[slot_clicked] = noone;
+        slot_n[slot_clicked] = 0;
+    }
+    
+    
+}
+else
+{
+    //If over backpack slots
+    if(mouse_slot == noone) and (mouse_x &gt; backpackx_off) and (mouse_x &lt; backpackx_off + backpack_slot_width * 32) and (mouse_y &gt; backpacky_off) and (mouse_y &lt; backpacky_off + backpack_slot_height * 32 + 160)
+    {
+        var xx = (mouse_x - backpackx_off) div 32;      //Slot size
+        var yy = (mouse_y - backpacky_off) div 32;     //Slot size
+
+        var slot_clicked = xx + yy;
+        
+        //If pressing shift
+        if(keyboard_check(vk_shift))
+        {
+            if(obj_player.moving = false)
+            {
+                //Put item stack into inventory
+                if(scr_move_to_inventory_slot(backpack_slot[slot_clicked], backpack_slot[slot_clicked], backpack_slot_n[slot_clicked]) == true &amp;&amp; backpack_slot[slot_clicked] != noone)
+                {
+                    if(slot_sound[backpack_slot[slot_clicked]] &gt; 0)
+                    {
+                        sound_play(slot_sound[backpack_slot[slot_clicked]]);
+                    }
+                    backpack_slot[slot_clicked] = noone;
+                    backpack_slot_n[slot_clicked] = 0;
+                }
+            }
+            else
+            {
+                mouse_slot = backpack_slot[slot_clicked];
+                mouse_slot_n = backpack_slot_n[slot_clicked];
+                backpack_slot[slot_clicked] = noone;
+                backpack_slot_n[slot_clicked] = 0;
+            }
+        }
+        else
+        {
+            mouse_slot = backpack_slot[slot_clicked];
+            mouse_slot_n = backpack_slot_n[slot_clicked];
+            backpack_slot[slot_clicked] = noone;
+            backpack_slot_n[slot_clicked] = 0;
+        }
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="8" enumb="64">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Drawing Inventory
+
+
+//----Drawing slots and items----
+
+//Checking slot_number and draw as many sprites as slot_number provides
+for(i = 0; i &lt; slot_number; i++)
+{
+    var xx = i mod inventory_width;
+    var yy = i div inventory_width;
+    
+    
+//Drawing weapon slot
+    //If for loop reaches slot 10
+    if(i = 9)
+    {
+        //Draw the weapon slot
+        draw_sprite(spr_weapon_slot, 0, 8 + xx * 32, 8 + yy * 32);
+        
+        if(slot[i] != noone)
+        {
+            //Drawing item inside weapon_slot (slot[9])
+            draw_sprite_ext(sprite[slot[i]], 0, 8 + xx * 32 + 16 + 3, 8 + yy * 32 + 16 + 2, 1, 1, 0, c_black, .4);    //Shadow
+            draw_sprite(sprite[slot[i]], 0, 8 + xx * 32 + 16, 8 + yy * 32 + 16);    //Drawing the sprite of the item inside the slot
+        }
+        
+        
+        //break;
+    }
+    
+    
+    
+//Drawing shield slot
+    //If for loop reaches slot 11
+    if(i = 10)
+    {
+        //Draw the shield slot
+        draw_sprite(spr_shield_slot, 0, 8 + xx * 32, 8 + yy * 32);
+        
+        if(slot[i] != noone)
+        {
+            //Drawing item inside shield_slot (slot[10])
+            draw_sprite_ext(sprite[slot[i]], 0, 8 + xx * 32 + 16 + 3, 8 + yy * 32 + 16 + 2, 1, 1, 0, c_black, .4);    //Shadow
+            draw_sprite(sprite[slot[i]], 0, 8 + xx * 32 + 16, 8 + yy * 32 + 16);    //Drawing the sprite of the item inside the slot
+        }
+        
+        
+        break;
+    }
+    
+    
+    
+//Drawing slots
+    if(i &lt; 9)
+    {
+        draw_sprite(spr_slot, 0, 8 + xx * 32, 8 + yy * 32);
+    
+        if(slot[i] != noone)
+        {
+            //Drawing item and number etc.
+            draw_sprite_ext(sprite[slot[i]], 0, 8 + xx * 32 + 16 + 3, 8 + yy * 32 + 16 + 2, 1, 1, 0, c_black, .4);    //Shadow
+            draw_sprite(sprite[slot[i]], 0, 8 + xx * 32 + 16, 8 + yy * 32 + 16);    //Drawing the sprite of the item inside the slot
+            draw_set_font(fnt_slot_number);
+            draw_set_color(c_white);
+            if(stackable[slot[i]] = true)
+            {
+                draw_text(4 + 8 + xx * 32, 2 + 8 + yy * 32, string(slot_n[i]));     //Drawing item amoount onto slot
+            }
+            draw_set_font(-1);
+            draw_set_color(-1);
+        }
+    }
+}
+
+
+//----Drawing backpack slots----
+
+//Checking backpack_slot_number and draw as many sprites as backpack_slot_number provides
+for(i = 0; i &lt; backpack_slot_number; i++)
+{
+    var xx = i mod backpack_slot_width;
+    var yy = i div backpack_slot_width;
+    
+     
+//Drawing backpack slots
+draw_sprite(spr_backpack_slot, 0, 8 + xx * 32, 168 + yy * 32);
+
+    
+        if(backpack_slot[i] != noone)
+        {
+            //Drawing item and number etc.
+            draw_sprite_ext(sprite[backpack_slot[i]], 0, 8 + xx * 32 + 16 + 3, 168 + yy * 32 + 16 + 2, 1, 1, 0, c_black, .4);    //Shadow
+            draw_sprite(sprite[backpack_slot[i]], 0, 8 + xx * 32 + 16, 168 + yy * 32 + 16);    //Drawing the sprite of the item inside the slot
+            draw_set_font(fnt_slot_number);
+            draw_set_color(c_white);
+            if(stackable[backpack_slot[i]] = true)
+            {
+                draw_text(4 + 8 + xx * 32, 2 + 168 + yy * 32, string(backpack_slot_n[i]));     //Drawing item amoount onto slot
+            }
+            draw_set_font(-1);
+            draw_set_color(-1);
+        }
+}
+
+
+//----Drawing sprite on mouse after clicking----
+
+//Check if not dragging a weapon or armor (items that cant stack)
+if(mouse_slot != noone)
+{
+    draw_sprite_ext(sprite[mouse_slot], 0, mouse_x - x_off + 11, mouse_y - y_off + 10, 1, 1, 0, c_black, .4);   //Shadow
+    draw_sprite(sprite[mouse_slot], 0, mouse_x - x_off + 8, mouse_y - y_off + 8);
+    draw_set_font(fnt_slot_number);
+        draw_set_color(c_white);
+        //Check if dragging stackable item
+        if(stackable[mouse_slot] = true)
+        {
+            //If so -&gt; draw item amount
+            draw_text(mouse_x - 12 - x_off, mouse_y - 13 - y_off, string(mouse_slot_n));            //Drawing item amount onto item whilst dragging
+        }
+        draw_set_font(fnt_hud);
+        draw_text_colortags(mouse_x + 20 - x_off, mouse_y + 13 - y_off, string(item_name[mouse_slot]));        //Drawing item name at mouse pos whilst dragging
+        
+    //IF right-clicking show info
+        if(mouse_check_button(mb_right))
+        {
+            show_info_box = true;
+            
+            //Drawing the actual info_box
+            draw_text_colortags(mouse_x + 20 - x_off, mouse_y + 28 - y_off, string(info_text[mouse_slot]));
+            
+        }
+        else
+        {
+            show_info_box = false;
+        }      
+        draw_set_font(-1);
+        draw_set_color(-1);
+}
+
+
+//Drawing coin counter
+draw_set_halign(fa_right);
+draw_set_font(fnt_hud);
+draw_text(40, 128, string(coins));
+draw_set_font(-1);
+draw_set_halign(fa_center);
+draw_sprite(spr_gold_coin, 0, 48, 132);
+</string>
+          </argument>
+        </arguments>
+      </action>
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Drawing Crafting UI
+
+
+//----Drawing available crafting recipes
+if(c_list)
+{
+    for(i = 0; i &lt; array_length_1d(recipe); i++)
+    {
+        draw_text(view_current + 16, view_current + 206 + (i * 16), string(recipe[i]) + " (" + string(ingredients[i,0]) + string(ingredients[i,1]) + ") ");
+    }
+}
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="67">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Enable crafting UI
+if(c_list = true)
+{
+    c_list = false;
+}
+else
+{
+    if(c_list = false)
+    {
+        //For loop to add available recipes to recipe_list
+        for(i = 0; i &lt; array_length_1d(recipe); i++)
+        {
+            recipe_list[i] = recipe[i];
+        }
+        c_list = true;
+    }
+}
+
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="9" enumb="66">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>///Remove a specififc amount of a given item
+
+scr_remove_item_from_inv(WOOD, 12); 
 </string>
           </argument>
         </arguments>

@@ -4,7 +4,16 @@
     <Config>Configs\Default</Config>
   </Configs>
   <NewExtensions/>
-  <sounds name="sound"/>
+  <sounds name="sound">
+    <sounds name="Inventory">
+      <sound>sound\snd_sword_equip</sound>
+      <sound>sound\snd_item_slot</sound>
+      <sound>sound\snd_grabbing_meat</sound>
+      <sound>sound\snd_item_ground</sound>
+      <sound>sound\snd_potion_pickup</sound>
+      <sound>sound\snd_sell_item</sound>
+    </sounds>
+  </sounds>
   <sprites name="sprites">
     <sprites name="World">
       <sprite>sprites\spr_wall</sprite>
@@ -19,31 +28,83 @@
       <sprite>sprites\spr_explosion</sprite>
     </sprites>
     <sprites name="Player">
-      <sprite>sprites\spr_exp</sprite>
-      <sprite>sprites\spr_player</sprite>
-      <sprite>sprites\spr_player_sword</sprite>
-      <sprite>sprites\spr_mouse</sprite>
+      <sprite>sprites\spr_player_down</sprite>
+      <sprite>sprites\spr_player_right</sprite>
+      <sprite>sprites\spr_player_right_idle</sprite>
+      <sprite>sprites\spr_player_left</sprite>
+      <sprite>sprites\spr_player_left_idle</sprite>
+      <sprite>sprites\spr_player_up</sprite>
     </sprites>
     <sprites name="Enemies">
       <sprite>sprites\spr_enemy</sprite>
       <sprite>sprites\spr_enemy02</sprite>
     </sprites>
     <sprites name="Skills">
-      <sprite>sprites\spr_skillup</sprite>
-      <sprite>sprites\spr_cd</sprite>
       <sprite>sprites\spr_skill_01</sprite>
     </sprites>
     <sprites name="Items">
-      <sprite>sprites\spr_item_monster_zero</sprite>
-      <sprite>sprites\spr_potion</sprite>
-      <sprite>sprites\spr_sword</sprite>
+      <sprites name="Food">
+        <sprite>sprites\spr_raw_meat</sprite>
+        <sprite>sprites\spr_cooked_meat</sprite>
+      </sprites>
+      <sprites name="Money">
+        <sprite>sprites\spr_money_bag_small</sprite>
+      </sprites>
+      <sprites name="Weapons">
+        <sprites name="Swords">
+          <sprite>sprites\spr_broken_hero_sword</sprite>
+          <sprite>sprites\spr_sword_of_randomness</sprite>
+          <sprites name="Longswords">
+            <sprite>sprites\spr_iron_longsword</sprite>
+            <sprite>sprites\spr_sword_of_flames</sprite>
+            <sprite>sprites\spr_sword_of_flames_animated</sprite>
+          </sprites>
+          <sprites name="Broadswords">
+            <sprite>sprites\spr_iron_broadsword</sprite>
+          </sprites>
+        </sprites>
+      </sprites>
+      <sprites name="Materials">
+        <sprite>sprites\spr_leather</sprite>
+        <sprite>sprites\spr_rock</sprite>
+        <sprite>sprites\spr_wood</sprite>
+      </sprites>
+      <sprites name="Armor">
+        <sprites name="Shields">
+          <sprites name="Iron Shields">
+            <sprite>sprites\spr_red_iron_shield</sprite>
+            <sprite>sprites\spr_brown_iron_shield</sprite>
+            <sprite>sprites\spr_green_iron_shield</sprite>
+            <sprite>sprites\spr_blue_iron_shield</sprite>
+            <sprite>sprites\spr_iron_shield</sprite>
+          </sprites>
+          <sprites name="Gold Shields">
+            <sprite>sprites\spr_golden_shield</sprite>
+          </sprites>
+        </sprites>
+      </sprites>
+      <sprites name="Potions">
+        <sprite>sprites\spr_item_monster_zero</sprite>
+        <sprite>sprites\spr_life_potion</sprite>
+        <sprite>sprites\spr_defense_potion</sprite>
+      </sprites>
     </sprites>
     <sprites name="Spells">
       <sprite>sprites\spr_punch</sprite>
       <sprite>sprites\spr_spell01</sprite>
     </sprites>
-    <sprites name="Inventar">
-      <sprite>sprites\spr_inventory_box_mask</sprite>
+    <sprites name="Inventory">
+      <sprite>sprites\spr_slot</sprite>
+      <sprite>sprites\spr_weapon_slot</sprite>
+      <sprite>sprites\spr_backpack_slot</sprite>
+      <sprite>sprites\spr_shield_slot</sprite>
+    </sprites>
+    <sprites name="HUD">
+      <sprite>sprites\spr_exp</sprite>
+      <sprite>sprites\spr_mouse</sprite>
+      <sprite>sprites\spr_skillup</sprite>
+      <sprite>sprites\spr_cd</sprite>
+      <sprite>sprites\spr_gold_coin</sprite>
     </sprites>
   </sprites>
   <backgrounds name="background">
@@ -59,16 +120,37 @@
     <script>scripts\scr_get_input.gml</script>
     <script>scripts\scr_bloodC.gml</script>
     <script>scripts\scr_bloodS.gml</script>
-    <scripts name="Inventar">
-      <script>scripts\scr_draw_shadow.gml</script>
-      <script>scripts\scr_item_db.gml</script>
-      <script>scripts\scr_get_item_value.gml</script>
+    <scripts name="Food">
+      <script>scripts\scr_eat_raw_meat.gml</script>
+      <script>scripts\scr_eat_cooked_meat.gml</script>
+      <scripts name="Potions">
+        <script>scripts\scr_drink_life_potion.gml</script>
+        <script>scripts\scr_drink_defense_potion.gml</script>
+      </scripts>
+    </scripts>
+    <scripts name="Inventory">
+      <script>scripts\scr_add_item.gml</script>
+      <script>scripts\scr_grab_one_item.gml</script>
+      <script>scripts\scr_add_backpack.gml</script>
+      <script>scripts\scr_remove_item.gml</script>
+      <script>scripts\scr_item_remove_from_stack_inv.gml</script>
+      <script>scripts\scr_remove_item_from_inv.gml</script>
+      <script>scripts\scr_pickup.gml</script>
+      <script>scripts\scr_move_to_backpack_slot.gml</script>
+      <script>scripts\scr_move_to_inventory_slot.gml</script>
+      <script>scripts\scr_sell_item.gml</script>
+    </scripts>
+    <script>scripts\draw_text_colortags.gml</script>
+    <scripts name="Money bags">
+      <script>scripts\scr_open_small_money_bag.gml</script>
     </scripts>
   </scripts>
   <fonts name="fonts">
     <font>fonts\fnt_cd</font>
-    <font>fonts\fnt_stack</font>
     <font>fonts\fnt_pause</font>
+    <font>fonts\fnt_slot_number</font>
+    <font>fonts\fnt_hud</font>
+    <font>fonts\fnt_hud_big</font>
   </fonts>
   <objects name="objects">
     <objects name="World">
@@ -93,33 +175,98 @@
       <object>objects\obj_skill</object>
       <object>objects\obj_skillup_01</object>
       <object>objects\obj_skillup_02</object>
-      <object>objects\obj_cd</object>
       <object>objects\obj_exp</object>
-      <object>objects\cont_gui</object>
-      <object>objects\obj_skillicon</object>
       <object>objects\obj_pause</object>
       <object>objects\obj_mouse</object>
+      <objects name="cd">
+        <object>objects\obj_cd</object>
+        <object>objects\cont_cd</object>
+        <object>objects\obj_skillicon</object>
+      </objects>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>
       <object>objects\obj_enemy02</object>
     </objects>
     <objects name="Items">
-      <object>objects\obj_monsterZero</object>
-      <object>objects\obj_sword</object>
-      <object>objects\obj_potion</object>
+      <objects name="Food">
+        <object>objects\obj_item_raw_meat</object>
+        <object>objects\obj_item_cooked_meat</object>
+      </objects>
+      <objects name="Money">
+        <object>objects\obj_money_bag_small</object>
+      </objects>
+      <objects name="Materials">
+        <object>objects\obj_item_wood</object>
+        <object>objects\obj_item_rock</object>
+        <object>objects\obj_item_leather</object>
+      </objects>
+      <objects name="Potions">
+        <object>objects\obj_life_potion</object>
+        <object>objects\obj_defense_potion</object>
+        <object>objects\obj_monsterZero</object>
+      </objects>
+      <objects name="Weapons">
+        <objects name="Swords">
+          <object>objects\obj_broken_hero_sword</object>
+          <object>objects\obj_sword_of_randomness</object>
+          <objects name="Longswords">
+            <object>objects\obj_iron_longsword</object>
+            <object>objects\obj_sword_of_flames</object>
+          </objects>
+          <objects name="Broadswords">
+            <object>objects\obj_iron_broadsword</object>
+          </objects>
+        </objects>
+      </objects>
+      <objects name="Armor">
+        <objects name="Shields">
+          <objects name="Iron Shields">
+            <object>objects\obj_red_iron_shield</object>
+            <object>objects\obj_brown_iron_shield</object>
+            <object>objects\obj_green_iron_shield</object>
+            <object>objects\obj_blue_iron_shield</object>
+            <object>objects\obj_iron_shield</object>
+          </objects>
+          <objects name="Gold Shields">
+            <object>objects\obj_golden_shield</object>
+          </objects>
+        </objects>
+      </objects>
     </objects>
-    <objects name="Inventar">
-      <object>objects\obj_game_controller</object>
-      <object>objects\obj_inventory_box</object>
-      <object>objects\obj_sword_box</object>
-      <object>objects\obj_items</object>
-      <object>objects\obj_item_parrent</object>
+    <object>objects\item_parent</object>
+    <objects name="Inventory">
+      <object>objects\obj_inventory</object>
+    </objects>
+    <objects name="NPC">
+      <object>objects\obj_npc_salesmen_parent</object>
+      <object>objects\obj_npc_parent</object>
     </objects>
   </objects>
   <rooms name="rooms">
     <room>rooms\rm_01</room>
   </rooms>
+  <constants number="19">
+    <constant name="WOOD">0</constant>
+    <constant name="LEATHER">1</constant>
+    <constant name="RAW_MEAT">2</constant>
+    <constant name="COOKED_MEAT">3</constant>
+    <constant name="ROCK">4</constant>
+    <constant name="BROKEN_HERO_SWORD">5</constant>
+    <constant name="SWORD_OF_RANDOMNESS">7</constant>
+    <constant name="RED_IRON_SHIELD">30</constant>
+    <constant name="BROWN_IRON_SHIELD">31</constant>
+    <constant name="GREEN_IRON_SHIELD">32</constant>
+    <constant name="BLUE_IRON_SHIELD">33</constant>
+    <constant name="IRON_SHIELD">34</constant>
+    <constant name="GOLDEN_SHIELD">35</constant>
+    <constant name="IRON_LONGSWORD">6</constant>
+    <constant name="IRON_BROADSWORD">8</constant>
+    <constant name="SWORD_OF_FLAMES">9</constant>
+    <constant name="LIFE_POTION">10</constant>
+    <constant name="MONEY_BAG_SMALL">11</constant>
+    <constant name="DEFENSE_POTION">12</constant>
+  </constants>
   <help>
     <rtf>help.rtf</rtf>
   </help>
