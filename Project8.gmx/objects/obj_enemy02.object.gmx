@@ -65,8 +65,9 @@ state = e_state.idle;
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>///Blood-Particles
+            <string>///Particles
 scr_bloodC();
+scr_armorC();
 </string>
           </argument>
         </arguments>
@@ -147,7 +148,7 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
 //Damage System - Spell
 if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
     //Rüstungs-Partikel hier einfügen!
-
+    scr_armorS();
     hp_armor -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
     with (obj_spell_01) {
     instance_destroy();
@@ -167,7 +168,7 @@ else if (place_meeting(x,y,obj_spell_01)){
 //Damage System - Punch
 if (place_meeting(x,y,obj_punch) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
     //Rüstungs-Partikel hier einfügen!
-
+    scr_armorS();
     hp_armor -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
     with (obj_punch) {
     instance_destroy();
