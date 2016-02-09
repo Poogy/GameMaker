@@ -15,6 +15,9 @@
     </sounds>
   </sounds>
   <sprites name="sprites">
+    <sprites name="Particles">
+      <sprite>sprites\pt_armor</sprite>
+    </sprites>
     <sprites name="World">
       <sprite>sprites\spr_wall</sprite>
       <sprite>sprites\spr_ramp1</sprite>
@@ -29,6 +32,7 @@
     </sprites>
     <sprites name="Player">
       <sprite>sprites\spr_player_down</sprite>
+      <sprite>sprites\spr_player_dash</sprite>
       <sprite>sprites\spr_player_right</sprite>
       <sprite>sprites\spr_player_right_idle</sprite>
       <sprite>sprites\spr_player_left</sprite>
@@ -87,6 +91,7 @@
         <sprite>sprites\spr_item_monster_zero</sprite>
         <sprite>sprites\spr_life_potion</sprite>
         <sprite>sprites\spr_defense_potion</sprite>
+        <sprite>sprites\spr_telepropter</sprite>
       </sprites>
     </sprites>
     <sprites name="Spells">
@@ -118,6 +123,8 @@
   </paths>
   <scripts name="scripts">
     <script>scripts\scr_get_input.gml</script>
+    <script>scripts\scr_armorC.gml</script>
+    <script>scripts\scr_armorS.gml</script>
     <script>scripts\scr_bloodC.gml</script>
     <script>scripts\scr_bloodS.gml</script>
     <scripts name="Food">

@@ -38,6 +38,7 @@ armor_player_max = 100;
 armor_player_reduction = 0.1;
 
 //-- Movement --
+dash = 0;
 spd = 400;
 jumping = false;
 jspd = -360;
@@ -95,6 +96,30 @@ part_type_orientation(partype_xp,0,90,0,0,true);
 part_type_colour_rgb(partype_xp,0,255,0,255,0,255);
 
 part_type_life(partype_xp,120,180);
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
+    <event eventtype="2" enumb="2">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>dash=0;
+sprite_index=spr_player_right_idle;
 </string>
           </argument>
         </arguments>
@@ -190,6 +215,8 @@ if armor_player &lt; 0 {armor_player = 0}
           <argument>
             <kind>1</kind>
             <string>///Controlls
+//Variables
+dash_spd=spd*50;
 //Scripts
 scr_get_input();
 
@@ -197,9 +224,17 @@ scr_get_input();
 background_x[0] = -phy_position_x/5;
 background_y[0] = -phy_position_y/5;
 
-//Movement
+//Movement und Dash
+if (dash=0 &amp;&amp; dash_key) {
+dash=1;
+alarm[2]=30;
+if key_left  {physics_apply_force(x,y,-dash_spd,-20); direction = 180; sprite_index=spr_player_dash; image_angle=180};
+if key_right {physics_apply_force(x,y,dash_spd,-20); direction = 0 sprite_index=spr_player_dash};
+}
+else {
 if key_left  {physics_apply_force(x,y,-spd,-20); direction = 180};
 if key_right {physics_apply_force(x,y,spd,-20); direction = 0};
+}
 if key_jump  {
    if place_meeting(x,y+1,obj_wall){
       jumping = true;
@@ -213,6 +248,7 @@ if key_jump  {
 }
 //Stats bzw. death xD
 if hp_player &lt;= 0 {game_restart()}
+
 
 //Spell1
 if (mouse_click &amp;&amp; cd_skill_01=0) {
@@ -246,7 +282,7 @@ if (punch_key &amp;&amp; cd_punch = 0)
         with obj_punch image_angle = 270;
         cd_punch = 1;
     }
-    alarm[0]=180;
+    alarm[0]=120;
 }
 /*
 //Ladder
