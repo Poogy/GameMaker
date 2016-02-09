@@ -145,7 +145,7 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
 }
 
 //Damage System - Spell
-if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_player.enemy_player &gt; 0){
+if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
     //Rüstungs-Partikel hier einfügen!
 
     hp_armor -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
@@ -165,7 +165,7 @@ else if (place_meeting(x,y,obj_spell_01)){
 }
 
 //Damage System - Punch
-if (place_meeting(x,y,obj_punch) &amp;&amp; obj_player.enemy_player &gt; 0){
+if (place_meeting(x,y,obj_punch) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
     //Rüstungs-Partikel hier einfügen!
 
     hp_armor -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
