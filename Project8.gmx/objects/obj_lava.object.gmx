@@ -26,9 +26,9 @@
           <argument>
             <kind>1</kind>
             <string>///Particle System
-physics_particle_set_radius(5);
+physics_particle_set_radius(4.5);
 physics_particle_set_gravity_scale(0.1);
-physics_particle_set_max_count(1900);
+physics_particle_set_max_count(2500);
 flags = phy_particle_flag_water|phy_particle_flag_tensile;
 physics_particle_group_begin(flags,0,x,y,0,0,0,0,c_white,1,1,1);
 physics_particle_group_box(208,128);
