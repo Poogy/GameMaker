@@ -28,12 +28,22 @@
             <string>///Variables
 phy_fixed_rotation = true;
 
-hp_enemy = 50;
-dmg = 10;
+damage = 10;
 attack = true;
+dir = choose(1,-1)
+
+//-- Hp&amp;Armor --
+hp_enemy = 50;
+hp_player_max = 50;
+mp_enemy = 100;
+mp_enemy_max = 100;
+armor_enemy = 0;
+armor_enemy_max = 0;
+armor_enemy_reduction = 0;
+
+//-- Movement --
 spd = 400;
 max_xspeed = 4;
-dir = choose(1,-1)
 </string>
           </argument>
         </arguments>
@@ -55,22 +65,7 @@ dir = choose(1,-1)
           <argument>
             <kind>1</kind>
             <string>///Blood-Particles
-parsys_blood = part_system_create();
-partBlood = part_type_create();
-
-//Functions
-    part_type_shape(partBlood,pt_shape_disk);
-    part_type_size(partBlood,0.1,0.3,-0.01,0);
-    part_type_colour_rgb(partBlood,60,255,0,0,0,0);
-    part_type_alpha2(partBlood,1,0.6);
-    part_type_speed(partBlood,1,9,0,0.5);
-    part_type_direction(partBlood,0,359,0,0);
-    part_type_gravity(partBlood,0.3,270);
-    part_type_blend(partBlood,1);
-    part_type_life(partBlood,15,60);
-    
-//Emitter
-parem_blood = part_emitter_create(parsys_blood);
+scr_bloodC();
 </string>
           </argument>
         </arguments>
@@ -93,7 +88,8 @@ parem_blood = part_emitter_create(parsys_blood);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>attack = true;
+            <string>///attack = true;
+attack = true;
 </string>
           </argument>
         </arguments>
@@ -117,53 +113,72 @@ parem_blood = part_emitter_create(parsys_blood);
           <argument>
             <kind>1</kind>
             <string>///Particle and Controlls
-physics_apply_force(x,y,dir*-spd,-20)
+physics_apply_force(x,y,dir*-spd,-20);
+
 //Gegner Movement
 if place_meeting(x+1,y,obj_wall){dir = 1};
 if place_meeting(x-1,y,obj_wall){dir = -1};
+
 //Damage System
 if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp;&amp; attack = true)
 {
-    with (obj_player) obj_player.armor_player -= obj_enemy.dmg * 1-obj_player.armor_player_reduction;
+    with (obj_player) obj_player.armor_player -= obj_enemy.damage * 1-obj_player.armor_player_reduction;
     attack = false;
     alarm[0] = 60;
 } else if (place_meeting(x,y,obj_player) &amp;&amp; attack = true) {
-    with (obj_player) obj_player.hp_player -= obj_enemy.dmg;
+    with (obj_player) obj_player.hp_player -= obj_enemy.damage;
     attack = false;
     alarm[0] = 60;       
 }
+
 //Damage System - Spell
-if (place_meeting(x,y,obj_spell_01))
-{
-    part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-    part_emitter_burst(parsys_blood,parem_blood,partBlood,20);
-    hp_enemy -= 10;
+if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_player.enemy_player &gt; 0){
+    //Rüstungs-Partikel hier einfügen!
+
+    hp_armor -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
+    with (obj_spell_01) {
+    instance_destroy();
+    with obj_player cd_spell_01 = 0;
+    }
+}    
+else if (place_meeting(x,y,obj_spell_01)){
+    scr_bloodS();
+        
+    hp_enemy -= obj_spell_01.damage;
+    with (obj_spell_01) {
+    instance_destroy();
+    with obj_player cd_spell_01 = 0;
+    }
 }
 
-if (hp_enemy &lt;= 0)
-    {
-        with other instance_destroy();
-    }
-
 //Damage System - Punch
-if (place_meeting(x,y,obj_punch))
-{
-    part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-    part_emitter_burst(parsys_blood,parem_blood,partBlood,20);
-    hp_enemy -= 2;
+if (place_meeting(x,y,obj_punch) &amp;&amp; obj_player.enemy_player &gt; 0){
+    //Rüstungs-Partikel hier einfügen!
+
+    hp_armor -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
+    with (obj_punch) {
+    instance_destroy();
+    with obj_player cd_punch = 0;
+    }
+}    
+else if (place_meeting(x,y,obj_punch)){
+    scr_bloodS();
+        
+    hp_enemy -= obj_punch.damage;
     with (obj_punch) {
     instance_destroy();
     with obj_player cd_punch = 0;
     }
 }
+
+//Death
 if (hp_enemy &lt;= 0)
     {
-        part_emitter_region(parsys_blood,parem_blood,x-16,x+16,y-16,y-16,ps_shape_rectangle,ps_distr_linear);
-        part_emitter_burst(parsys_blood,parem_blood,partBlood,50);
+        scr_bloodS();
+        
         instance_create(x,y,obj_exp);
         with other instance_destroy();
     }
-
 </string>
           </argument>
         </arguments>

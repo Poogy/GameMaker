@@ -28,13 +28,23 @@
             <string>///Variables
 phy_fixed_rotation = true;
 
-state = e_state.idle;
-hp_enemy02 = 100;
-dmg = 20;
+damage = 20;
 attack = true;
+dir = 0;
+
+//-- Hp&amp;Armor --
+hp_enemy = 100;
+hp_player_max = 100;
+mp_enemy = 100;
+mp_enemy_max = 100;
+armor_enemy = 0;
+armor_enemy_max = 0;
+armor_enemy_reduction = 0;
+
+//-- Movement --
 spd = 0;
 max_xspeed = 4;
-dir=0;
+state = e_state.idle;
 </string>
           </argument>
         </arguments>
@@ -102,7 +112,8 @@ scr_bloodC();
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>physics_apply_force(x,y,-dir*spd,-20)
+            <string>///Particle and Controlls
+physics_apply_force(x,y,-dir*spd,-20)
 //Gegner Movement
 if place_meeting(x+1,y,obj_wall){dir = -1};
 if place_meeting(x-1,y,obj_wall){dir = 1};
@@ -124,39 +135,63 @@ switch (state) {
 //Damage System
 if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp;&amp; attack = true)
 {
-    with (obj_player) obj_player.armor_player -= obj_enemy02.dmg * 1-obj_player.armor_player_reduction;
+    with (obj_player) obj_player.armor_player -= obj_enemy.damage * 1-obj_player.armor_player_reduction;
     attack = false;
     alarm[0] = 60;
 } else if (place_meeting(x,y,obj_player) &amp;&amp; attack = true) {
-    with (obj_player) obj_player.hp_player -= obj_enemy02.dmg;
+    with (obj_player) obj_player.hp_player -= obj_enemy.damage;
     attack = false;
     alarm[0] = 60;       
 }
 
 //Damage System - Spell
-if (place_meeting(x,y,obj_spell_01))
-{
+if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_player.enemy_player &gt; 0){
+    //Rüstungs-Partikel hier einfügen!
+
+    hp_armor -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
+    with (obj_spell_01) {
+    instance_destroy();
+    with obj_player cd_spell_01 = 0;
+    }
+}    
+else if (place_meeting(x,y,obj_spell_01)){
     scr_bloodS();
-    hp_enemy02 -= 10;
+        
+    hp_enemy -= obj_spell_01.damage;
+    with (obj_spell_01) {
+    instance_destroy();
+    with obj_player cd_spell_01 = 0;
+    }
 }
+
 //Damage System - Punch
-if (place_meeting(x,y,obj_punch))
-{
+if (place_meeting(x,y,obj_punch) &amp;&amp; obj_player.enemy_player &gt; 0){
+    //Rüstungs-Partikel hier einfügen!
+
+    hp_armor -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
+    with (obj_punch) {
+    instance_destroy();
+    with obj_player cd_punch = 0;
+    }
+}    
+else if (place_meeting(x,y,obj_punch)){
     scr_bloodS();
-    hp_enemy02 -= 2;
+        
+    hp_enemy -= obj_punch.damage;
     with (obj_punch) {
     instance_destroy();
     with obj_player cd_punch = 0;
     }
 }
+
 //Death
-if (hp_enemy02 &lt;= 0)
+if (hp_enemy &lt;= 0)
     {
         scr_bloodS();
+        
         instance_create(x,y,obj_exp);
         with other instance_destroy();
     }
-
 </string>
           </argument>
         </arguments>
@@ -228,7 +263,7 @@ part_emitter_destroy(parsys_blood,parem_blood);
           <argument>
             <kind>1</kind>
             <string>draw_self();
-draw_healthbar(x-25,y-35,x+25,y-29,(hp_enemy02/50)*100,c_black,c_red,c_green,0,true,true)
+draw_healthbar(x-25,y-35,x+25,y-29,hp_enemy,c_black,c_red,c_green,0,true,true)
 </string>
           </argument>
         </arguments>

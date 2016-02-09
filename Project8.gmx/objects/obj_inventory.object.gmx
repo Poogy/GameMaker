@@ -1195,6 +1195,8 @@ slot_n[10] = 1;
 
 weapon_slot = slot[9];
 shield_slot = slot[10];
+
+//----Adding items to backpack----
 backpack_slot[0] = LIFE_POTION;
 backpack_slot_n[0] = 1;
 </string>

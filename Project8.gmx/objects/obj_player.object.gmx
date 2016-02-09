@@ -28,6 +28,7 @@
             <string>///Variables
 //phy_fixed_rotation = true
 
+//-- Hp&amp;Armor --
 hp_player = 100;
 hp_player_max = 100;
 mp_player = 100;
@@ -36,15 +37,20 @@ armor_player = 100;
 armor_player_max = 100;
 armor_player_reduction = 0.1;
 
+//-- Movement --
 spd = 400;
 jumping = false;
 jspd = -360;
 cspd = 10;
+
+//-- XP --
 lvl = 1;
 xp = 0;
 xp_previous = 10/3
 xp_max = xp_previous*(1.5*lvl)
 sp = 10;
+
+//-- Skills --
 cd_skill_01 = 0;
 cd_punch = 0;
 </string>
