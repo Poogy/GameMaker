@@ -50,10 +50,10 @@ xp = 0;
 xp_previous = 10/3
 xp_max = xp_previous*(1.5*lvl)
 sp = 10;
-
 //-- Skills --
 cd_skill_01 = 0;
 cd_punch = 0;
+cd_teleport = 0;
 </string>
           </argument>
         </arguments>
@@ -101,6 +101,29 @@ part_type_life(partype_xp,120,180);
         </arguments>
       </action>
     </event>
+    <event eventtype="2" enumb="3">
+      <action>
+        <libid>1</libid>
+        <id>603</id>
+        <kind>7</kind>
+        <userelative>0</userelative>
+        <isquestion>0</isquestion>
+        <useapplyto>-1</useapplyto>
+        <exetype>2</exetype>
+        <functionname></functionname>
+        <codestring></codestring>
+        <whoName>self</whoName>
+        <relative>0</relative>
+        <isnot>0</isnot>
+        <arguments>
+          <argument>
+            <kind>1</kind>
+            <string>cd_teleport=0;
+</string>
+          </argument>
+        </arguments>
+      </action>
+    </event>
     <event eventtype="2" enumb="2">
       <action>
         <libid>1</libid>
@@ -118,7 +141,8 @@ part_type_life(partype_xp,120,180);
         <arguments>
           <argument>
             <kind>1</kind>
-            <string>dash=0;
+            <string>///Dash
+dash=0;
 sprite_index=spr_player_right_idle;
 </string>
           </argument>
@@ -283,6 +307,14 @@ if (punch_key &amp;&amp; cd_punch = 0)
         cd_punch = 1;
     }
     alarm[0]=120;
+}
+
+//Teleport
+if (global.teleport=1 &amp;&amp; teleport_key &amp;&amp; cd_teleport=0) {
+cd_teleport=1;
+alarm[3]=room_speed*15;
+instance_create(x,y,obj_tele_point);
+x=obj_tele_point.x;
 }
 /*
 //Ladder

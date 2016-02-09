@@ -190,6 +190,7 @@
         <object>objects\cont_cd</object>
         <object>objects\obj_skillicon</object>
       </objects>
+      <object>objects\obj_tele_point</object>
     </objects>
     <objects name="Enemies">
       <object>objects\obj_enemy</object>
@@ -212,6 +213,7 @@
         <object>objects\obj_life_potion</object>
         <object>objects\obj_defense_potion</object>
         <object>objects\obj_monsterZero</object>
+        <object>objects\obj_telepropter</object>
       </objects>
       <objects name="Weapons">
         <objects name="Swords">

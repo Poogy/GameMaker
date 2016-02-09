@@ -8,3 +8,4 @@ mouse_click = mouse_check_button_pressed(mb_left);
 inventory_key = keyboard_check_pressed(ord('I'));
 skill_key = keyboard_check_pressed(ord('P'));
 dash_key = keyboard_check_pressed(ord('R'));
+teleport_key = keyboard_check_pressed(ord('T'));

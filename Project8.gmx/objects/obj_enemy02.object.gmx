@@ -37,8 +37,8 @@ hp_enemy = 100;
 hp_player_max = 100;
 mp_enemy = 100;
 mp_enemy_max = 100;
-armor_enemy = 0;
-armor_enemy_max = 0;
+armor_enemy = 100;
+armor_enemy_max = 100;
 armor_enemy_reduction = 0;
 
 //-- Movement --
@@ -147,9 +147,8 @@ if (place_meeting(x,y,obj_player) &amp;&amp; obj_player.armor_player &gt; 0 &amp
 
 //Damage System - Spell
 if (place_meeting(x,y,obj_spell_01) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
-    //Rüstungs-Partikel hier einfügen!
     scr_armorS();
-    hp_armor -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
+    armor_enemy -= (obj_spell_01.damage * 1-obj_enemy.armor_enemy_reduction);
     with (obj_spell_01) {
     instance_destroy();
     with obj_player cd_spell_01 = 0;
@@ -167,9 +166,8 @@ else if (place_meeting(x,y,obj_spell_01)){
 
 //Damage System - Punch
 if (place_meeting(x,y,obj_punch) &amp;&amp; obj_enemy02.armor_enemy &gt; 0){
-    //Rüstungs-Partikel hier einfügen!
     scr_armorS();
-    hp_armor -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
+    armor_enemy -= (obj_punch.damage * 1-obj_enemy.armor_enemy_reduction);
     with (obj_punch) {
     instance_destroy();
     with obj_player cd_punch = 0;

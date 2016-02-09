@@ -136,6 +136,7 @@ chase
     <instance objName="obj_inventory" x="32" y="0" name="inst_8E00236F" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_item_cooked_meat" x="496" y="192" name="inst_7940E9C7" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
     <instance objName="obj_sword_of_randomness" x="240" y="256" name="inst_2A40A20B" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
+    <instance objName="obj_telepropter" x="704" y="480" name="inst_BE82DECD" locked="0" code="" scaleX="1" scaleY="1" colour="4294967295" rotation="0"/>
   </instances>
   <tiles>
     <tile bgName="tile_box1" x="96" y="544" w="32" h="32" xo="0" yo="0" id="10000001" name="inst_9075E5D4" depth="1000000" locked="0" colour="4294967295" scaleX="1" scaleY="1"/>
